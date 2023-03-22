@@ -19,6 +19,7 @@ namespace Cartagena_PI_ofc
             InitializeComponent();
         }
 
+        Globals globais = new Globals();
         int idPartida;
 
         //Lista as partidas abertas dentro da ListBox
@@ -33,10 +34,10 @@ namespace Cartagena_PI_ofc
             {
                 // Lista apenas as partidas abertas
                 string[] statusPartida = partidas[i].Split(',');
-                if (statusPartida[3] == "A")
-                {
+                //if (statusPartida[3] == "A")
+                //{
                     lstEscolhaPartida.Items.Add(partidas[i]);
-                }
+                //}
             }  
         }
 
@@ -78,21 +79,23 @@ namespace Cartagena_PI_ofc
             }
             else
             {
-                string[] corJogador = retorno.Split(',');
-                lblLogar.Text = $"A cor de {usuario} é {corJogador[2]}";
+                globais.Jogador = retorno.Split(',');
+                lblLogar.Text = $"A cor de {usuario} é {globais.Jogador[2]}";
             }
 
         }
 
+        // Inicia a partida caso o número de jogadores for maior que 2
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
             string[] jogadores = Jogo.ListarJogadores(idPartida).Split('\n');
-            string[] idJogador1 = jogadores[1].Split(',');
+            string senhaPartida = txtSenha.Text;
 
             if (jogadores.Length >= 2) {
-                string jogadorInicial = Jogo.IniciarPartida(Convert.ToInt32(idJogador1[0]), txtSenhaPartida.Text);
+                string jogadorInicial = Jogo.IniciarPartida(Convert.ToInt32(globais.Jogador[0]), globais.Jogador[1]);
                 lblIniciar.Text = $"O Jogador: {jogadorInicial} inicia.";
-                Form f2 = new Form2();
+
+                Form f2 = new Form2(globais);
                 f2.ShowDialog();
             }
         }
