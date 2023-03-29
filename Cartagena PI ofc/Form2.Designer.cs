@@ -31,6 +31,12 @@
             this.lblCartas = new System.Windows.Forms.Label();
             this.btnConsultarCartas = new System.Windows.Forms.Button();
             this.lblNomeJogador = new System.Windows.Forms.Label();
+            this.txtJogarCarta = new System.Windows.Forms.TextBox();
+            this.btnJogarCarta = new System.Windows.Forms.Button();
+            this.lblTabuleiro = new System.Windows.Forms.Label();
+            this.nmbPirataEscolhido = new System.Windows.Forms.NumericUpDown();
+            this.lblStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.nmbPirataEscolhido)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCartas
@@ -61,16 +67,64 @@
             this.lblNomeJogador.TabIndex = 2;
             this.lblNomeJogador.Text = "label1";
             // 
+            // txtJogarCarta
+            // 
+            this.txtJogarCarta.Location = new System.Drawing.Point(322, 50);
+            this.txtJogarCarta.Name = "txtJogarCarta";
+            this.txtJogarCarta.Size = new System.Drawing.Size(120, 26);
+            this.txtJogarCarta.TabIndex = 3;
+            // 
+            // btnJogarCarta
+            // 
+            this.btnJogarCarta.Location = new System.Drawing.Point(349, 162);
+            this.btnJogarCarta.Name = "btnJogarCarta";
+            this.btnJogarCarta.Size = new System.Drawing.Size(75, 55);
+            this.btnJogarCarta.TabIndex = 4;
+            this.btnJogarCarta.Text = "Jogar Carta";
+            this.btnJogarCarta.UseVisualStyleBackColor = true;
+            this.btnJogarCarta.Click += new System.EventHandler(this.btnJogarCarta_Click);
+            // 
+            // lblTabuleiro
+            // 
+            this.lblTabuleiro.AutoSize = true;
+            this.lblTabuleiro.Location = new System.Drawing.Point(618, 24);
+            this.lblTabuleiro.Name = "lblTabuleiro";
+            this.lblTabuleiro.Size = new System.Drawing.Size(51, 20);
+            this.lblTabuleiro.TabIndex = 5;
+            this.lblTabuleiro.Text = "label1";
+            // 
+            // nmbPirataEscolhido
+            // 
+            this.nmbPirataEscolhido.Location = new System.Drawing.Point(322, 94);
+            this.nmbPirataEscolhido.Name = "nmbPirataEscolhido";
+            this.nmbPirataEscolhido.Size = new System.Drawing.Size(120, 26);
+            this.nmbPirataEscolhido.TabIndex = 6;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(355, 265);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(51, 20);
+            this.lblStatus.TabIndex = 7;
+            this.lblStatus.Text = "label1";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.nmbPirataEscolhido);
+            this.Controls.Add(this.lblTabuleiro);
+            this.Controls.Add(this.btnJogarCarta);
+            this.Controls.Add(this.txtJogarCarta);
             this.Controls.Add(this.lblNomeJogador);
             this.Controls.Add(this.btnConsultarCartas);
             this.Controls.Add(this.lblCartas);
             this.Name = "Form2";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.nmbPirataEscolhido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,5 +135,10 @@
         private System.Windows.Forms.Label lblCartas;
         private System.Windows.Forms.Button btnConsultarCartas;
         private System.Windows.Forms.Label lblNomeJogador;
+        private System.Windows.Forms.TextBox txtJogarCarta;
+        private System.Windows.Forms.Button btnJogarCarta;
+        private System.Windows.Forms.Label lblTabuleiro;
+        private System.Windows.Forms.NumericUpDown nmbPirataEscolhido;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

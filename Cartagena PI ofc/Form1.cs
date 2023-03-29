@@ -20,7 +20,6 @@ namespace Cartagena_PI_ofc
         }
 
         Globals globais = new Globals();
-        int idPartida;
 
         //Lista as partidas abertas dentro da ListBox
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -46,15 +45,15 @@ namespace Cartagena_PI_ofc
             string partida = lstEscolhaPartida.SelectedItem.ToString();
             string[] itens = partida.Split(',');
 
-            idPartida = Convert.ToInt32(itens[0]);
+            globais.idPartida = Convert.ToInt32(itens[0]);
             string nomePartida = itens[1];
             string dataPartida = itens[2];
             string status = itens[3];
 
-            lblEntrarPartida.Text = $"id: {idPartida.ToString()} \nNome:{nomePartida}";
+            lblEntrarPartida.Text = $"id: {globais.idPartida.ToString()} \nNome:{nomePartida}";
 
             // Exibe os jogadores ns partida
-            lblJogadores.Text = Jogo.ListarJogadores(idPartida);
+            lblJogadores.Text = Jogo.ListarJogadores(globais.idPartida);
         }
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
@@ -71,7 +70,7 @@ namespace Cartagena_PI_ofc
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
 
-            string retorno = Jogo.EntrarPartida(idPartida, usuario, senha);
+            string retorno = Jogo.EntrarPartida(globais.idPartida, usuario, senha);
 
             if (retorno.StartsWith("ERRO"))
             {
@@ -88,7 +87,7 @@ namespace Cartagena_PI_ofc
         // Inicia a partida caso o número de jogadores for maior que 2
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
-            string[] jogadores = Jogo.ListarJogadores(idPartida).Split('\n');
+            string[] jogadores = Jogo.ListarJogadores(globais.idPartida).Split('\n');
             string senhaPartida = txtSenha.Text;
 
             if (jogadores.Length >= 2) {
