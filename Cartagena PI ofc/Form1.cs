@@ -33,9 +33,10 @@ namespace Cartagena_PI_ofc
             {
                 // Lista apenas as partidas abertas
                 string[] statusPartida = partidas[i].Split(',');
+                
                 //if (statusPartida[3] == "A")
                 //{
-                    lstEscolhaPartida.Items.Add(partidas[i]);
+                lstEscolhaPartida.Items.Add(partidas[i]);
                 //}
             }  
         }
@@ -74,7 +75,7 @@ namespace Cartagena_PI_ofc
 
             if (retorno.StartsWith("ERRO"))
             {
-                lblLogar.Text = "Não foi possivel entrar na partida\nVerifique se o usuário já existe e se a senha está correta";
+                lblLogar.Text = "Não foi possivel entrar na partida\nVerifique se o usuário já existe e/ou se a senha está correta";
             }
             else
             {

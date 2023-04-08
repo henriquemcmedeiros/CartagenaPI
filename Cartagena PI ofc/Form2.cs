@@ -28,11 +28,17 @@ namespace Cartagena_PI_ofc
             lblNomeJogador.Text = globais.Jogador[2].Replace("\r\n", "");
             lblTabuleiro.Text = Jogo.ExibirTabuleiro(globais.idPartida);
 
-            MessageBox.Show(Jogo.ExibirTabuleiro(globais.idPartida));
+            //MessageBox.Show(Jogo.ExibirTabuleiro(globais.idPartida));
         }
 
         private void btnJogarCarta_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(Jogo.VerificarVez(globais.idPartida));
+            string[] verificarPartida = Jogo.VerificarVez(globais.idPartida).Split(',');
+
+            //if ()
+
+
             string cartaJogada = txtJogarCarta.Text;
             string[] tabuleiro = Jogo.ExibirTabuleiro(globais.idPartida).Split('\n');
             int pirataEscolhido = Convert.ToInt32(nmbPirataEscolhido.Value);
