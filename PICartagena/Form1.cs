@@ -59,11 +59,11 @@ namespace PICartagena
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
-            lstListarPartidas.Items.Clear();
             string nomePartida = txtNomePartida.Text;
             string senhaPartida = txtSenhaPartida.Text;
 
             string retorno = Jogo.CriarPartida(nomePartida, senhaPartida);
+            // Tratar ERRO
             btnListarPartidas_Click(sender, e);
         }
 
@@ -73,7 +73,6 @@ namespace PICartagena
             jogador.Senha = txtSenhaPartidaLogar.Text;
 
             string retorno = Jogo.EntrarPartida(partida.Id, jogador.Nome, jogador.Senha);
-
 
             if (retorno.StartsWith("ERRO"))
             {
@@ -85,13 +84,14 @@ namespace PICartagena
                 jogador.Id = Convert.ToInt32(divisãoRetorno[0]);
                 jogador.Senha = divisãoRetorno[1];
                 jogador.Cor = divisãoRetorno[2];
-                lblListaJogadores.Text = Jogo.ListarJogadores(partida.Id);
             }
+            lblListaJogadores.Text = Jogo.ListarJogadores(partida.Id);
         }
 
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
             string jogadorInicial = Jogo.IniciarPartida(Convert.ToInt32(jogador.Id), jogador.Senha);
+
             if (jogadorInicial.StartsWith("ERRO"))
             {
                 MessageBox.Show(jogadorInicial);
@@ -100,8 +100,8 @@ namespace PICartagena
             else
             {
                 partida.status = "J";
-                //Form f2 = new Form2();
-                //f2.ShowDialog();
+                Form f2 = new Form2(partida, jogador);
+                f2.ShowDialog();
             }
         }
     }

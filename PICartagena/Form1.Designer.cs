@@ -64,7 +64,7 @@
             this.lstListarPartidas.ItemHeight = 20;
             this.lstListarPartidas.Location = new System.Drawing.Point(12, 12);
             this.lstListarPartidas.Name = "lstListarPartidas";
-            this.lstListarPartidas.Size = new System.Drawing.Size(196, 584);
+            this.lstListarPartidas.Size = new System.Drawing.Size(223, 584);
             this.lstListarPartidas.TabIndex = 1;
             // 
             // btnCriarPartida
@@ -229,7 +229,7 @@
             this.Controls.Add(this.lstListarPartidas);
             this.Controls.Add(this.btnListarPartidas);
             this.Name = "txtNomeDaPartida";
-            this.Text = "Form1";
+            this.Text = "Palmira";
             this.ResumeLayout(false);
             this.PerformLayout();
 
