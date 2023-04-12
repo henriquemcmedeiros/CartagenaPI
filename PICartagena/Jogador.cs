@@ -70,15 +70,15 @@ public class Jogador
         }
     }
 
-    public void Jogar(Partida partida, Dictionary<int, int> piratas, string carta = null, int idpirata = -1)
+    public int[] Jogar(Partida partida, int[] posPiratas, string carta = null, int idpirata = -1)
     {
         string[] retorno = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
 
         string[] retorno2 = retorno[0].Split(',');
 
-        int retornoPirata = piratas[idpirata];
+        int retornoPirata = posPiratas[idpirata];
 
-        if (retorno2[1] == "J" && Convert.ToInt32(retorno2[1]) == this.Id)
+        if (retorno2[0] == "J" && Convert.ToInt32(retorno2[1]) == this.Id)
         {
             // Pula a vez
             if (carta == "" && idpirata == -1)
@@ -88,15 +88,23 @@ public class Jogador
             // Volta um pirata
             else if (carta == null)
             {
-                retornoPirata = Convert.ToInt32(Jogo.Jogar(this.Id, this.Senha, piratas[idpirata]));
+                retornoPirata = Convert.ToInt32(Jogo.Jogar(this.Id, this.Senha, posPiratas[idpirata]));
+
+                // Mantêm a posição dos meus piratas
+                posPiratas[idpirata] = retornoPirata;
             }
             // Avança com o pirata
             else
             {
-                retornoPirata = Convert.ToInt32(Jogo.Jogar(this.Id, this.Senha, piratas[idpirata], carta));
-            }
-            piratas[idpirata] = retornoPirata;
-        }
+                string r = Jogo.Jogar(this.Id, this.Senha, posPiratas[idpirata], carta);
+                System.Windows.Forms.MessageBox.Show(r);
+                retornoPirata = Convert.ToInt32(Jogo.Jogar(this.Id, this.Senha, posPiratas[idpirata], carta));
+                
 
+                // Mantêm a posição dos meus piratas
+                posPiratas[idpirata] = retornoPirata;
+            }
+        }
+        return posPiratas;
     }
 }
