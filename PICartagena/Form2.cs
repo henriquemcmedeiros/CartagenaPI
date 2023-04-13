@@ -15,7 +15,7 @@ namespace PICartagena
     {
         Partida partida = new Partida();
         Jogador jogador = new Jogador();
-        int[] posPiratas = {0, 0, 0, 0, 0, 0};
+        List<Piratas> piratas = new List<Piratas> { };
         public Form2(Partida partida, Jogador jogador)
         {
             InitializeComponent();
@@ -26,16 +26,8 @@ namespace PICartagena
             jogador.ReceberCartas();
             AtualizarQntCartas();
             IniciarTabuleiro();
-
-            MessageBox.Show(Jogo.VerificarVez(partida.Id));
         }
 
-        public void InicializarPiratas() {
-            for (int i = 0; i < 6; i++) 
-            {
-                posPiratas[i] = 0;
-            }
-        }
 
         public void AtualizarQntCartas()
         {
@@ -68,16 +60,22 @@ namespace PICartagena
         private void btnJogar_Click(object sender, EventArgs e)
         {
             string carta = txtCarta.Text;
-            string txt = "|";
+            string posPirata = txtPosicaoPirata.Text;
 
-            posPiratas = jogador.Jogar(partida, posPiratas, carta, 0);
-
-            for (int i = 0; i < posPiratas.Length; i++)
+            if (posPirata == "")
             {
-                txt += posPiratas[i].ToString() + "|";
+                piratas = jogador.Jogar(partida, piratas, carta);
             }
-            lblJogadorAtual.Text = txt;
-            AtualizarQntCartas();
+            else
+            {
+                piratas = jogador.Jogar(partida, piratas, carta, Convert.ToInt32(posPirata));
+            }
+            //for(int i = 0; i < 38*5; i++)
+            //{
+            //    lblJogadorAtual.Text = piratas[i].ToString();
+            //}
+
+            //AtualizarQntCartas();
         }
     }
 }

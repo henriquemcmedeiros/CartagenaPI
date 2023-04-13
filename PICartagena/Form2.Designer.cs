@@ -38,6 +38,7 @@
             this.lblTabuleiro = new System.Windows.Forms.Label();
             this.btnJogar = new System.Windows.Forms.Button();
             this.txtCarta = new System.Windows.Forms.TextBox();
+            this.txtPosicaoPirata = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblJogadorAtual
@@ -129,11 +130,19 @@
             this.txtCarta.Size = new System.Drawing.Size(129, 26);
             this.txtCarta.TabIndex = 9;
             // 
+            // txtPosicaoPirata
+            // 
+            this.txtPosicaoPirata.Location = new System.Drawing.Point(748, 344);
+            this.txtPosicaoPirata.Name = "txtPosicaoPirata";
+            this.txtPosicaoPirata.Size = new System.Drawing.Size(129, 26);
+            this.txtPosicaoPirata.TabIndex = 10;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 514);
+            this.Controls.Add(this.txtPosicaoPirata);
             this.Controls.Add(this.txtCarta);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.lblTabuleiro);
@@ -163,5 +172,6 @@
         private System.Windows.Forms.Label lblTabuleiro;
         private System.Windows.Forms.Button btnJogar;
         private System.Windows.Forms.TextBox txtCarta;
+        private System.Windows.Forms.TextBox txtPosicaoPirata;
     }
 }
