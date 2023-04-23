@@ -79,5 +79,10 @@ namespace PICartagena
             lblJogadorAtual.Text = txt;
             AtualizarQntCartas();
         }
+
+        private void lblFaca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
