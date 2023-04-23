@@ -77,5 +77,10 @@ namespace PICartagena
 
             //AtualizarQntCartas();
         }
+
+        private void lblFaca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -18,12 +18,13 @@ namespace PICartagena
         public txtNomeDaPartida()
         {
             InitializeComponent();
+            //btnListarPartidas_Click(sender, e); listar partidas automaticamente
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
             lstListarPartidas.Items.Clear();
-            string ListarPartidas = Jogo.ListarPartidas("T");
+            string ListarPartidas = Jogo.ListarPartidas("A");
 
             ListarPartidas = ListarPartidas.Replace("\r", "");
 
@@ -53,7 +54,7 @@ namespace PICartagena
             }
             catch
             {
-                lblListaJogadores.Text = "Selecione uma partida";
+                MessageBox.Show("Selecione uma partida");
             }
         }
 
@@ -63,8 +64,20 @@ namespace PICartagena
             string senhaPartida = txtSenhaPartida.Text;
 
             string retorno = Jogo.CriarPartida(nomePartida, senhaPartida);
-            // Tratar ERRO
-            btnListarPartidas_Click(sender, e);
+
+            if (retorno.StartsWith("ERRO"))
+            {
+                if (nomePartida == "" || retorno == "ERRO: Partida já existente")
+                {
+                    MessageBox.Show("Nome da partida ja existente ou vazio!");
+                }
+                else if(senhaPartida == "")
+                {
+                    MessageBox.Show("Senha da partida vazia!");
+                }
+            }
+            else
+                btnListarPartidas_Click(sender, e);
         }
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
@@ -73,10 +86,17 @@ namespace PICartagena
             jogador.Senha = txtSenhaPartidaLogar.Text;
 
             string retorno = Jogo.EntrarPartida(partida.Id, jogador.Nome, jogador.Senha);
-
+         
             if (retorno.StartsWith("ERRO"))
             {
-                MessageBox.Show("Não foi possivel entrar na partida\nVerifique se o usuário já existe e/ou se a senha está correta");
+                if (jogador.Nome == "" || retorno == "ERRO:Já existe um jogador com este nome na partida\r\n")
+                {
+                    MessageBox.Show("Nome da jogador já existente ou vazio!");
+                }
+                else
+                {
+                    MessageBox.Show("Senha da partida incorreta!");
+                }
             }
             else
             {
