@@ -45,6 +45,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.txtPosicaoPirata = new System.Windows.Forms.TextBox();
+            this.lblPosicaoPirata = new System.Windows.Forms.Label();
+            this.lblCarta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -66,8 +69,8 @@
             // lblEsqueleto
             // 
             this.lblEsqueleto.AutoSize = true;
-            this.lblEsqueleto.BackColor = System.Drawing.Color.Transparent;
-            this.lblEsqueleto.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.lblEsqueleto.BackColor = System.Drawing.Color.Black;
+            this.lblEsqueleto.ForeColor = System.Drawing.Color.Transparent;
             this.lblEsqueleto.Location = new System.Drawing.Point(117, 366);
             this.lblEsqueleto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEsqueleto.Name = "lblEsqueleto";
@@ -78,17 +81,20 @@
             // lblFaca
             // 
             this.lblFaca.AutoSize = true;
+            this.lblFaca.BackColor = System.Drawing.Color.Black;
+            this.lblFaca.ForeColor = System.Drawing.Color.Transparent;
             this.lblFaca.Location = new System.Drawing.Point(245, 366);
             this.lblFaca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFaca.Name = "lblFaca";
             this.lblFaca.Size = new System.Drawing.Size(13, 13);
             this.lblFaca.TabIndex = 2;
             this.lblFaca.Text = "F";
-            this.lblFaca.Click += new System.EventHandler(this.lblFaca_Click);
             // 
             // lblGarrafa
             // 
             this.lblGarrafa.AutoSize = true;
+            this.lblGarrafa.BackColor = System.Drawing.Color.Black;
+            this.lblGarrafa.ForeColor = System.Drawing.Color.Transparent;
             this.lblGarrafa.Location = new System.Drawing.Point(371, 366);
             this.lblGarrafa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGarrafa.Name = "lblGarrafa";
@@ -99,6 +105,8 @@
             // lblTricornio
             // 
             this.lblTricornio.AutoSize = true;
+            this.lblTricornio.BackColor = System.Drawing.Color.Black;
+            this.lblTricornio.ForeColor = System.Drawing.Color.Transparent;
             this.lblTricornio.Location = new System.Drawing.Point(120, 536);
             this.lblTricornio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTricornio.Name = "lblTricornio";
@@ -109,7 +117,9 @@
             // lblChave
             // 
             this.lblChave.AutoSize = true;
-            this.lblChave.Location = new System.Drawing.Point(244, 536);
+            this.lblChave.BackColor = System.Drawing.Color.Black;
+            this.lblChave.ForeColor = System.Drawing.Color.Transparent;
+            this.lblChave.Location = new System.Drawing.Point(245, 536);
             this.lblChave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChave.Name = "lblChave";
             this.lblChave.Size = new System.Drawing.Size(14, 13);
@@ -119,7 +129,9 @@
             // lblPistola
             // 
             this.lblPistola.AutoSize = true;
-            this.lblPistola.Location = new System.Drawing.Point(371, 536);
+            this.lblPistola.BackColor = System.Drawing.Color.Black;
+            this.lblPistola.ForeColor = System.Drawing.Color.Transparent;
+            this.lblPistola.Location = new System.Drawing.Point(372, 536);
             this.lblPistola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPistola.Name = "lblPistola";
             this.lblPistola.Size = new System.Drawing.Size(14, 13);
@@ -138,8 +150,8 @@
             // 
             // btnJogar
             // 
-            this.btnJogar.Location = new System.Drawing.Point(420, 46);
-            this.btnJogar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJogar.Location = new System.Drawing.Point(420, 156);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(86, 27);
             this.btnJogar.TabIndex = 8;
@@ -150,7 +162,7 @@
             // txtCarta
             // 
             this.txtCarta.Location = new System.Drawing.Point(420, 91);
-            this.txtCarta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCarta.Margin = new System.Windows.Forms.Padding(2);
             this.txtCarta.Name = "txtCarta";
             this.txtCarta.Size = new System.Drawing.Size(87, 20);
             this.txtCarta.TabIndex = 9;
@@ -215,11 +227,39 @@
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
             // 
+            // txtPosicaoPirata
+            // 
+            this.txtPosicaoPirata.Location = new System.Drawing.Point(420, 131);
+            this.txtPosicaoPirata.Name = "txtPosicaoPirata";
+            this.txtPosicaoPirata.Size = new System.Drawing.Size(86, 20);
+            this.txtPosicaoPirata.TabIndex = 16;
+            // 
+            // lblPosicaoPirata
+            // 
+            this.lblPosicaoPirata.AutoSize = true;
+            this.lblPosicaoPirata.Location = new System.Drawing.Point(417, 115);
+            this.lblPosicaoPirata.Name = "lblPosicaoPirata";
+            this.lblPosicaoPirata.Size = new System.Drawing.Size(78, 13);
+            this.lblPosicaoPirata.TabIndex = 17;
+            this.lblPosicaoPirata.Text = "Posicao Pirata:";
+            // 
+            // lblCarta
+            // 
+            this.lblCarta.AutoSize = true;
+            this.lblCarta.Location = new System.Drawing.Point(417, 75);
+            this.lblCarta.Name = "lblCarta";
+            this.lblCarta.Size = new System.Drawing.Size(35, 13);
+            this.lblCarta.TabIndex = 18;
+            this.lblCarta.Text = "Carta:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 716);
+            this.Controls.Add(this.lblCarta);
+            this.Controls.Add(this.lblPosicaoPirata);
+            this.Controls.Add(this.txtPosicaoPirata);
             this.Controls.Add(this.txtCarta);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.lblTabuleiro);
@@ -236,7 +276,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -268,5 +308,8 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox txtPosicaoPirata;
+        private System.Windows.Forms.Label lblPosicaoPirata;
+        private System.Windows.Forms.Label lblCarta;
     }
 }

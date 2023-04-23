@@ -15,7 +15,8 @@ namespace PICartagena
     {
         Partida partida = new Partida();
         Jogador jogador = new Jogador();
-        int[] posPiratas = {0, 0, 0, 0, 0, 0};
+        string[] tabuleiro = new string[38];
+        List<Piratas> piratas = new List<Piratas> { };
         public Form2(Partida partida, Jogador jogador)
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace PICartagena
 
             jogador.ReceberCartas();
             AtualizarQntCartas();
+
             IniciarTabuleiro();
 
             MessageBox.Show(Jogo.VerificarVez(partida.Id));
@@ -49,7 +51,6 @@ namespace PICartagena
 
         public void IniciarTabuleiro()
         {
-            Dictionary<int, string> tabuleiro = new Dictionary<int, string>();
             string[] linhas = Jogo.ExibirTabuleiro(partida.Id).Replace("\r", "").Split('\n');
 
             int i = 0;
@@ -59,7 +60,7 @@ namespace PICartagena
                 if (linha != "")
                 {
                     string ultimoElemento = linha[linha.Length - 1].ToString();
-                    tabuleiro.Add(i, ultimoElemento);
+                    tabuleiro[i] =  ultimoElemento;
                 }
                 i++;
             }
@@ -70,6 +71,7 @@ namespace PICartagena
             string carta = txtCarta.Text;
             string txt = "|";
 
+<<<<<<< Updated upstream
             posPiratas = jogador.Jogar(partida, posPiratas, carta, 0);
 
             for (int i = 0; i < posPiratas.Length; i++)
@@ -83,6 +85,29 @@ namespace PICartagena
         private void lblFaca_Click(object sender, EventArgs e)
         {
 
+=======
+            if (carta == "" &&  posPirata == "")
+            {
+                // Pular vez
+                piratas = jogador.Jogar(partida, piratas);
+            }
+            else if (posPirata == "")
+            {
+                // Voltar pirata
+                piratas = jogador.Jogar(partida, piratas, carta);
+            }
+            else
+            {
+                // Avançar pirata
+                piratas = jogador.Jogar(partida, piratas, carta, Convert.ToInt32(posPirata));
+            }
+            //for(int i = 0; i < 38*5; i++)
+            //{
+            //    lblJogadorAtual.Text = piratas[i].ToString();
+            //}
+            jogador.ReceberCartas();
+            AtualizarQntCartas();
+>>>>>>> Stashed changes
         }
     }
 }
