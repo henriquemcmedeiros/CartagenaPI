@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.lblJogadorAtual = new System.Windows.Forms.Label();
             this.lblEsqueleto = new System.Windows.Forms.Label();
@@ -48,12 +49,15 @@
             this.txtPosicaoPirata = new System.Windows.Forms.TextBox();
             this.lblPosicaoPirata = new System.Windows.Forms.Label();
             this.lblCarta = new System.Windows.Forms.Label();
+            this.tmrPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // lblJogadorAtual
@@ -141,7 +145,7 @@
             // lblTabuleiro
             // 
             this.lblTabuleiro.AutoSize = true;
-            this.lblTabuleiro.Location = new System.Drawing.Point(890, 189);
+            this.lblTabuleiro.Location = new System.Drawing.Point(73, 91);
             this.lblTabuleiro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTabuleiro.Name = "lblTabuleiro";
             this.lblTabuleiro.Size = new System.Drawing.Size(35, 13);
@@ -252,11 +256,27 @@
             this.lblCarta.TabIndex = 18;
             this.lblCarta.Text = "Carta:";
             // 
+            // tmrPrincipal
+            // 
+            this.tmrPrincipal.Interval = 10000;
+            this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(511, -29);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(656, 783);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox7.TabIndex = 19;
+            this.pictureBox7.TabStop = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 716);
+            this.ClientSize = new System.Drawing.Size(1090, 716);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.lblCarta);
             this.Controls.Add(this.lblPosicaoPirata);
             this.Controls.Add(this.txtPosicaoPirata);
@@ -285,6 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +332,7 @@
         private System.Windows.Forms.TextBox txtPosicaoPirata;
         private System.Windows.Forms.Label lblPosicaoPirata;
         private System.Windows.Forms.Label lblCarta;
+        private System.Windows.Forms.Timer tmrPrincipal;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

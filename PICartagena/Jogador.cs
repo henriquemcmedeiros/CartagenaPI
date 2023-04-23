@@ -72,9 +72,11 @@ public class Jogador
 
     public List<Piratas> Jogar(Partida partida, List<Piratas> piratas, string carta = "", int posPirata = -1)
     {
-        string[] retorno = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
+        string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
+        string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
+        string retornoPiratas = Jogo.VerificarVez(partida.Id);
 
-        string[] retorno2 = retorno[0].Split(',');
+        piratas = AtualizarPiratas(piratas, retornoPiratas);
 
         // Verifica se é a vez do bot
         if (PrimeiraLinhaVerificaVez[0] == "J" && Convert.ToInt32(PrimeiraLinhaVerificaVez[1]) == this.Id)
@@ -83,7 +85,7 @@ public class Jogador
             {
                 // Pula a vez
                 Jogo.Jogar(this.Id, this.Senha);
-                MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                 return piratas;
             }
 
@@ -99,7 +101,7 @@ public class Jogador
                         // RETORNA PIRATA
                         retornoPiratas = Jogo.Jogar(this.Id, this.Senha, piratas[0].PosTabuleiro);
 
-                        MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                        System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                     }
                     // Caso ele jogue uma carta
                     else
@@ -107,24 +109,25 @@ public class Jogador
                         // AVANÇA COM O PIRATA
                         retornoPiratas = Jogo.Jogar(this.Id, this.Senha, posPirata, carta);
 
-                        MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                        System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                     }
                     piratas = AtualizarPiratas(piratas, retornoPiratas);
+                    break;
                 }
                 else
                 {
-                    MessageBox.Show(Jogo.VerificarVez(partida.Id));
-                    MessageBox.Show("NAO TEM PIRATA AI VACILAO");
+                    System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                    System.Windows.Forms.MessageBox.Show("NAO TEM PIRATA AI VACILAO");
                     return piratas;
                 }
             }
         }
         else
         {
-            MessageBox.Show("NÃO É A SUA VEZ");
+            System.Windows.Forms.MessageBox.Show("NÃO É A SUA VEZ");
         }
-        //MessageBox.Show(Jogo.VerificarVez(partida.Id));
-        ReceberCartas();
+        System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+        
         return piratas;
     }
 
@@ -140,18 +143,21 @@ public class Jogador
 
         foreach (string linha in linhas)
         {
+            string[] coluna = linha.Split(',');
+
             if (j != 0 && j != linhas.Length - 1)
             {
-                string[] coluna = linha.Split(',');
 
                 auxiliar.PosTabuleiro = Convert.ToInt32(coluna[0]);
+
                 auxiliar.idJogador = Convert.ToInt32(coluna[1]);
+
                 auxiliar.qntPiratas = Convert.ToInt32(coluna[2]);
 
-                // Mantêm a posição dos meus piratas
-                posPiratas[idpirata] = retornoPirata;
+                piratas.Add(auxiliar);
             }
+            j++;
         }
-        return posPiratas;
+        return piratas;
     }
 }
