@@ -139,6 +139,11 @@ public class Jogador
 
         piratas.Clear();
 
+        /*if (retornoPiratas.EndsWiths('\n'))
+        {
+            retornoPiratas = retornoPiratas.Substring(0, retornoPiratas.Length - 2)
+        }*/
+            
         string[] linhas = retornoPiratas.Replace("\r", "").Split('\n');
 
         foreach (string linha in linhas)
