@@ -10,7 +10,7 @@ public class Jogador
     private string _nome;
     private string _cor;
     private string _senha;
-    public Cartas cartasMao = new Cartas();
+    public Carta cartasMao = new Carta();
 
     public int Id
     {
@@ -70,7 +70,7 @@ public class Jogador
         }
     }
 
-    public List<Piratas> Jogar(Partida partida, List<Piratas> piratas, string carta = "", int posPirata = -1)
+    public List<Pirata> Jogar(Partida partida, List<Pirata> piratas, string carta = "", int posPirata = -1)
     {
         string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
         string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
@@ -89,6 +89,8 @@ public class Jogador
                 return piratas;
             }
 
+            int contadorDeLinhas = 0;
+
             // Itera sobre todos os piratas
             for (int i = 0; i < piratas.Count; i++)
             {
@@ -99,9 +101,16 @@ public class Jogador
                     if (carta == "")
                     {
                         // RETORNA PIRATA
-                        retornoPiratas = Jogo.Jogar(this.Id, this.Senha, piratas[0].PosTabuleiro);
+                        retornoPiratas = Jogo.Jogar(this.Id, this.Senha, piratas[i].PosTabuleiro);
 
-                        System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                        if (retornoPiratas.StartsWith("ERRO"))
+                        {
+                            System.Windows.Forms.MessageBox.Show(retornoPiratas);
+                        }
+                        else {
+                            System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                            contadorDeLinhas--;
+                        }
                     }
                     // Caso ele jogue uma carta
                     else
@@ -109,32 +118,39 @@ public class Jogador
                         // AVANÇA COM O PIRATA
                         retornoPiratas = Jogo.Jogar(this.Id, this.Senha, posPirata, carta);
 
-                        System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                        if (retornoPiratas.StartsWith("ERRO"))
+                        {
+                            System.Windows.Forms.MessageBox.Show(retornoPiratas);
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                            contadorDeLinhas--;
+                        }
                     }
                     piratas = AtualizarPiratas(piratas, retornoPiratas);
                     break;
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
-                    System.Windows.Forms.MessageBox.Show("NAO TEM PIRATA AI VACILAO");
-                    return piratas;
+                    contadorDeLinhas++;
                 }
+            }
+            if (contadorDeLinhas == piratas.Count)
+            {
+                System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                System.Windows.Forms.MessageBox.Show("NÃO TEM PIRATA AI VACILAO");
             }
         }
         else
         {
             System.Windows.Forms.MessageBox.Show("NÃO É A SUA VEZ");
         }
-        System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
-        
         return piratas;
     }
 
-    public List<Piratas> AtualizarPiratas(List<Piratas> piratas, string retornoPiratas)
+    public List<Pirata> AtualizarPiratas(List<Pirata> piratas, string retornoPiratas)
     {
-        Piratas auxiliar = new Piratas();
-
         int j = 0;
 
         piratas.Clear();
@@ -143,16 +159,18 @@ public class Jogador
         {
             retornoPiratas = retornoPiratas.Substring(0, retornoPiratas.Length - 2)
         }*/
-            
-        string[] linhas = retornoPiratas.Replace("\r", "").Split('\n');
+
+        // array = retorno.Replace("\r", "").Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+        string[] linhas = retornoPiratas.Replace("\r", "").Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (string linha in linhas)
         {
             string[] coluna = linha.Split(',');
 
-            if (j != 0 && j != linhas.Length - 1)
+            if (j != 0 && j != linhas.Length)
             {
-
+                Pirata auxiliar = new Pirata();
                 auxiliar.PosTabuleiro = Convert.ToInt32(coluna[0]);
 
                 auxiliar.idJogador = Convert.ToInt32(coluna[1]);

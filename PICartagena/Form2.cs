@@ -16,7 +16,7 @@ namespace PICartagena
         Partida partida = new Partida();
         Jogador jogador = new Jogador();
         string[] tabuleiro = new string[38];
-        List<Piratas> piratas = new List<Piratas> { };
+        List<Pirata> piratas = new List<Pirata> { };
         public Form2(Partida partida, Jogador jogador)
         {
             InitializeComponent();
