@@ -88,5 +88,10 @@ namespace PICartagena
             jogador.ReceberCartas();
             AtualizarQntCartas();
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
