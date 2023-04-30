@@ -50,16 +50,13 @@
             this.lblPosicaoPirata = new System.Windows.Forms.Label();
             this.lblCarta = new System.Windows.Forms.Label();
             this.tmrPrincipal = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // lblJogadorAtual
@@ -262,35 +259,20 @@
             this.tmrPrincipal.Interval = 10000;
             this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
             // 
-            // pictureBox7
+            // panel1
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(872, 18);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(988, 1182);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 19;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(932, 896);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(108, 110);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 20;
-            this.pictureBox8.TabStop = false;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Location = new System.Drawing.Point(1001, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 976);
+            this.panel1.TabIndex = 19;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1881, 1050);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCarta);
             this.Controls.Add(this.lblPosicaoPirata);
             this.Controls.Add(this.txtPosicaoPirata);
@@ -314,15 +296,12 @@
             this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,7 +329,6 @@
         private System.Windows.Forms.Label lblPosicaoPirata;
         private System.Windows.Forms.Label lblCarta;
         private System.Windows.Forms.Timer tmrPrincipal;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Panel panel1;
     }
 }
