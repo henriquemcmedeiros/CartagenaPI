@@ -50,7 +50,6 @@ namespace PICartagena
         public void IniciarTabuleiro()
         {
             string[] linhas = Jogo.ExibirTabuleiro(partida.Id).Replace("\r", "").Split('\n');
-            Elemento auxiliar = new Elemento();
 
             int i = 0;
 
@@ -58,6 +57,7 @@ namespace PICartagena
             {
                 if (linha != "")
                 {
+                    Elemento auxiliar = new Elemento();
                     string ultimoElemento = linha[linha.Length - 1].ToString();
                     auxiliar.Simbolo = ultimoElemento;
                     tabuleiro.Add(auxiliar);
@@ -204,37 +204,27 @@ namespace PICartagena
 
                 if (t.Simbolo == "E")
                 {
-                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\EsqueletoE.png");
-
-                    t.Img = image;
+                    t.Img = PICartagena.Properties.Resources.EsqueletoE;
                 }
 
                 if (t.Simbolo == "F")
                 {
-                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\FacaE.png");
-
-                    t.Img = image;
+                    t.Img = PICartagena.Properties.Resources.FacaE;
                 }
 
                 if (t.Simbolo == "T")
                 {
-                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\TricornioE.png");
-
-                    t.Img = image;
+                    t.Img = PICartagena.Properties.Resources.TricorinioE;
                 }
 
                 if (t.Simbolo == "P")
                 {
-                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\PistolaE.png");
-
-                    t.Img = image;
+                    t.Img = PICartagena.Properties.Resources.PistolaE;
                 }
 
                 if (t.Simbolo == "G")
                 {
-                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\GarrafaE.png");
-
-                    t.Img = image;
+                    t.Img = PICartagena.Properties.Resources.GarrafaE;
                 }
             }
 
