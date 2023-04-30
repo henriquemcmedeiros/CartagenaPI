@@ -129,7 +129,7 @@ namespace PICartagena
                     p.Location = new System.Drawing.Point(this.tabuleiro[i].X, this.tabuleiro[i].Y);
                     p.Width = this.tabuleiro[i].W;
                     p.Height = this.tabuleiro[i].H;
-                    p.BackgroundImage = this.tabuleiro[i].Img;
+                    p.BackgroundImage = this.tabuleiro[i + 1].Img;
 
                     p.BackgroundImageLayout = ImageLayout.Zoom;
 
