@@ -16,10 +16,10 @@ namespace PICartagena
     {
         Partida partida = new Partida();
         Jogador jogador = new Jogador();
-        string[] tabuleiro = new string[38];
 
+        List<Elemento> tabuleiro = new List<Elemento>();
         List<Pirata> piratas = new List<Pirata> { };
-        List<Panel> panelPosTabuleiro;
+        List<Panel> panelPosTabuleiro = new List<Panel>();
         public Form2(Partida partida, Jogador jogador)
         {
             InitializeComponent();
@@ -50,6 +50,7 @@ namespace PICartagena
         public void IniciarTabuleiro()
         {
             string[] linhas = Jogo.ExibirTabuleiro(partida.Id).Replace("\r", "").Split('\n');
+            Elemento auxiliar = new Elemento();
 
             int i = 0;
 
@@ -58,7 +59,8 @@ namespace PICartagena
                 if (linha != "")
                 {
                     string ultimoElemento = linha[linha.Length - 1].ToString();
-                    tabuleiro[i] =  ultimoElemento;
+                    auxiliar.Simbolo = ultimoElemento;
+                    tabuleiro.Add(auxiliar);
                 }
                 i++;
             }
@@ -90,19 +92,21 @@ namespace PICartagena
         {
             jogador.ReceberCartas();
             AtualizarQntCartas();
+            exibirTabuleiro();
         }
 
         private void exibirTabuleiro()
         {
             try
             {
-                int x = 284, y = 586;
+                // X e Y da posição 1
+                int x = 439, y = 865;
                
                 this.tabuleiro = atualizarImgPosicoes(this.tabuleiro);
 
                 for (int i = 0; i < this.panelPosTabuleiro.Count; i++)
                 {
-                    panelTabuleiro.Controls.Remove(this.panelPosTabuleiro[i]);
+                    pnlTabuleiro.Controls.Remove(this.panelPosTabuleiro[i]);
                 }
 
                 this.panelPosTabuleiro.Clear();
@@ -124,14 +128,7 @@ namespace PICartagena
                     p.Height = this.tabuleiro[i].H;
                     p.BackgroundImage = this.tabuleiro[i].Img;
 
-                    if (i == 0)
-                    {
-                        p.BackgroundImageLayout = ImageLayout.Stretch;
-                    }
-                    else
-                    {
-                        p.BackgroundImageLayout = ImageLayout.Zoom;
-                    }
+                    p.BackgroundImageLayout = ImageLayout.Zoom;
 
                     this.panelPosTabuleiro.Add(p);
 
@@ -139,37 +136,37 @@ namespace PICartagena
                     {
                         if (i < 3)
                         {
-                            x += 89;
+                            x += 128;
                         }
 
                         if (i > 3 && i < 9)
                         {
-                            x -= 89;
+                            x -= 128;
                         }
 
                         if (i > 9 && i < 15)
                         {
-                            x += 89;
+                            x += 128;
                         }
 
                         if (i > 15 && i < 21)
                         {
-                            x -= 89;
+                            x -= 128;
                         }
 
                         if (i > 21 && i < 27)
                         {
-                            x += 89;
+                            x += 128;
                         }
 
                         if (i > 27 && i < 33)
                         {
-                            x -= 89;
+                            x -= 128;
                         }
 
                         if (i > 33)
                         {
-                            x += 89;
+                            x += 128;
                         }
 
                         if (i == 36)
@@ -179,14 +176,14 @@ namespace PICartagena
 
                         if (i == 3 || i == 9 || i == 15 || i == 21 || i == 27 || i == 33)
                         {
-                            y -= 94;
+                            y -= 128;
                         }
                     }
                 }
 
                 for (int i = 0; i < this.panelPosTabuleiro.Count; i++)
                 {
-                    panelTabuleiro.Controls.Add(this.panelPosTabuleiro[i]);
+                    pnlTabuleiro.Controls.Add(this.panelPosTabuleiro[i]);
                 }
             }
             catch
@@ -198,51 +195,49 @@ namespace PICartagena
         {
             foreach (Elemento t in l)
             {
-                t.W = 53;
-                t.H = 53;
+                t.W = 72;
+                t.H = 72;
 
-                if (t.Posicao == 0)
+                if (t.Simbolo == "C")
                 {
-                    t.W = 259;
-                    t.H = 88;
-                    t.Img = Cartagena.Properties.Resources.areia;
-                }
+                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\ChaveE.png");
 
-                if (t.Posicao == 37)
-                {
-                    t.W = 255;
-                    t.H = 95;
-                    t.Img = Cartagena.Properties.Resources.barco;
-                }
-
-                if (t.Simbolo == "P")
-                {
-                    t.Img = Cartagena.Properties.Resources.pistola;
+                    t.Img = image;
                 }
 
                 if (t.Simbolo == "E")
                 {
-                    t.Img = Cartagena.Properties.Resources.esqueleto;
-                }
+                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\EsqueletoE.png");
 
-                if (t.Simbolo == "C")
-                {
-                    t.Img = Cartagena.Properties.Resources.chave;
+                    t.Img = image;
                 }
 
                 if (t.Simbolo == "F")
                 {
-                    t.Img = Cartagena.Properties.Resources.faca;
-                }
+                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\FacaE.png");
 
-                if (t.Simbolo == "G")
-                {
-                    t.Img = Cartagena.Properties.Resources.garrafa;
+                    t.Img = image;
                 }
 
                 if (t.Simbolo == "T")
                 {
-                    t.Img = Cartagena.Properties.Resources.tricornio;
+                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\TricornioE.png");
+
+                    t.Img = image;
+                }
+
+                if (t.Simbolo == "P")
+                {
+                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\PistolaE.png");
+
+                    t.Img = image;
+                }
+
+                if (t.Simbolo == "G")
+                {
+                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\GarrafaE.png");
+
+                    t.Img = image;
                 }
             }
 

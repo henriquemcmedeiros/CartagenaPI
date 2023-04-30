@@ -50,7 +50,7 @@
             this.lblPosicaoPirata = new System.Windows.Forms.Label();
             this.lblCarta = new System.Windows.Forms.Label();
             this.tmrPrincipal = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTabuleiro = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -259,20 +259,20 @@
             this.tmrPrincipal.Interval = 10000;
             this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
             // 
-            // panel1
+            // pnlTabuleiro
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(1001, 51);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 976);
-            this.panel1.TabIndex = 19;
+            this.pnlTabuleiro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTabuleiro.BackgroundImage")));
+            this.pnlTabuleiro.Location = new System.Drawing.Point(1001, 51);
+            this.pnlTabuleiro.Name = "pnlTabuleiro";
+            this.pnlTabuleiro.Size = new System.Drawing.Size(800, 976);
+            this.pnlTabuleiro.TabIndex = 19;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1881, 1050);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblCarta);
             this.Controls.Add(this.lblPosicaoPirata);
             this.Controls.Add(this.txtPosicaoPirata);
@@ -292,8 +292,6 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -329,6 +327,6 @@
         private System.Windows.Forms.Label lblPosicaoPirata;
         private System.Windows.Forms.Label lblCarta;
         private System.Windows.Forms.Timer tmrPrincipal;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTabuleiro;
     }
 }
