@@ -32,6 +32,8 @@ namespace PICartagena
             jogador.ReceberCartas();
             AtualizarQntCartas();
 
+            MessageBox.Show(Jogo.ExibirTabuleiro(partida.Id));
+
             IniciarTabuleiro();
 
             //MessageBox.Show(Jogo.VerificarVez(partida.Id));
@@ -111,7 +113,7 @@ namespace PICartagena
 
                 this.panelPosTabuleiro.Clear();
 
-                for (int i = 0; i < this.tabuleiro.Count -1; i++)
+                for (int i = 0; i < this.tabuleiro.Count; i++)
                 {
                     this.tabuleiro[i].X = x;
                     this.tabuleiro[i].Y = y;
@@ -129,7 +131,7 @@ namespace PICartagena
                     p.Location = new System.Drawing.Point(this.tabuleiro[i].X, this.tabuleiro[i].Y);
                     p.Width = this.tabuleiro[i].W;
                     p.Height = this.tabuleiro[i].H;
-                    p.BackgroundImage = this.tabuleiro[i + 1].Img;
+                    p.BackgroundImage = this.tabuleiro[i].Img;
 
                     p.BackgroundImageLayout = ImageLayout.Zoom;
 
