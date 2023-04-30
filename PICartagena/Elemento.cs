@@ -7,7 +7,7 @@ public class Elemento {
         int x, y;
         int w, h;
 
-        Bitmap img;
+        Image img;
 
         public string Simbolo
         {
@@ -45,7 +45,7 @@ public class Elemento {
             set { h = value; }
         }
 
-        public Bitmap Img
+        public Image Img
         {
         get { return img; }
         set { img = value; }

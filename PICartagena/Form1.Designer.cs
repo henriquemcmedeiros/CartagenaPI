@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(txtNomeDaPartida));
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.lstListarPartidas = new System.Windows.Forms.ListBox();
             this.btnCriarPartida = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             // btnListarPartidas
             // 
             this.btnListarPartidas.Location = new System.Drawing.Point(188, 8);
-            this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(2);
             this.btnListarPartidas.Name = "btnListarPartidas";
             this.btnListarPartidas.Size = new System.Drawing.Size(71, 46);
             this.btnListarPartidas.TabIndex = 0;
@@ -63,7 +64,7 @@
             // 
             this.lstListarPartidas.FormattingEnabled = true;
             this.lstListarPartidas.Location = new System.Drawing.Point(8, 8);
-            this.lstListarPartidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstListarPartidas.Margin = new System.Windows.Forms.Padding(2);
             this.lstListarPartidas.Name = "lstListarPartidas";
             this.lstListarPartidas.Size = new System.Drawing.Size(150, 381);
             this.lstListarPartidas.TabIndex = 1;
@@ -71,7 +72,7 @@
             // btnCriarPartida
             // 
             this.btnCriarPartida.Location = new System.Drawing.Point(188, 253);
-            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnCriarPartida.Name = "btnCriarPartida";
             this.btnCriarPartida.Size = new System.Drawing.Size(71, 46);
             this.btnCriarPartida.TabIndex = 2;
@@ -102,7 +103,7 @@
             // txtSenhaPartida
             // 
             this.txtSenhaPartida.Location = new System.Drawing.Point(179, 368);
-            this.txtSenhaPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSenhaPartida.Margin = new System.Windows.Forms.Padding(2);
             this.txtSenhaPartida.Name = "txtSenhaPartida";
             this.txtSenhaPartida.Size = new System.Drawing.Size(87, 20);
             this.txtSenhaPartida.TabIndex = 6;
@@ -110,7 +111,7 @@
             // txtNomePartida
             // 
             this.txtNomePartida.Location = new System.Drawing.Point(179, 325);
-            this.txtNomePartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomePartida.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomePartida.Name = "txtNomePartida";
             this.txtNomePartida.Size = new System.Drawing.Size(87, 20);
             this.txtNomePartida.TabIndex = 7;
@@ -137,7 +138,7 @@
             // btnSelecionarPartida
             // 
             this.btnSelecionarPartida.Location = new System.Drawing.Point(188, 68);
-            this.btnSelecionarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelecionarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelecionarPartida.Name = "btnSelecionarPartida";
             this.btnSelecionarPartida.Size = new System.Drawing.Size(71, 46);
             this.btnSelecionarPartida.TabIndex = 10;
@@ -167,7 +168,7 @@
             // txtNomeDoJogador
             // 
             this.txtNomeDoJogador.Location = new System.Drawing.Point(300, 325);
-            this.txtNomeDoJogador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomeDoJogador.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeDoJogador.Name = "txtNomeDoJogador";
             this.txtNomeDoJogador.Size = new System.Drawing.Size(87, 20);
             this.txtNomeDoJogador.TabIndex = 17;
@@ -175,7 +176,7 @@
             // txtSenhaPartidaLogar
             // 
             this.txtSenhaPartidaLogar.Location = new System.Drawing.Point(300, 368);
-            this.txtSenhaPartidaLogar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSenhaPartidaLogar.Margin = new System.Windows.Forms.Padding(2);
             this.txtSenhaPartidaLogar.Name = "txtSenhaPartidaLogar";
             this.txtSenhaPartidaLogar.Size = new System.Drawing.Size(87, 20);
             this.txtSenhaPartidaLogar.TabIndex = 16;
@@ -203,7 +204,7 @@
             // btnEntrarPartida
             // 
             this.btnEntrarPartida.Location = new System.Drawing.Point(309, 253);
-            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
             this.btnEntrarPartida.Size = new System.Drawing.Size(71, 46);
             this.btnEntrarPartida.TabIndex = 13;
@@ -214,7 +215,7 @@
             // btnIniciarPartida
             // 
             this.btnIniciarPartida.Location = new System.Drawing.Point(309, 68);
-            this.btnIniciarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIniciarPartida.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
             this.btnIniciarPartida.Size = new System.Drawing.Size(71, 46);
             this.btnIniciarPartida.TabIndex = 18;
@@ -246,7 +247,8 @@
             this.Controls.Add(this.lstListarPartidas);
             this.Controls.Add(this.btnListarPartidas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "txtNomeDaPartida";
             this.Text = "Palmira";

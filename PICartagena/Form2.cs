@@ -110,16 +110,19 @@ namespace PICartagena
                 }
 
                 this.panelPosTabuleiro.Clear();
-                for (int i = 0; i < this.tabuleiro.Count; i++)
+
+                for (int i = 0; i < this.tabuleiro.Count -1; i++)
                 {
                     this.tabuleiro[i].X = x;
                     this.tabuleiro[i].Y = y;
 
-                    if (i == 0)
+                    // Posição 0 do tabuleiro
+
+                   /* if (i == 0)
                     {
                         this.tabuleiro[i].X = 3;
                         this.tabuleiro[i].Y = 569;
-                    }
+                    } */
 
                     Panel p = new Panel();
 
@@ -169,10 +172,6 @@ namespace PICartagena
                             x += 128;
                         }
 
-                        if (i == 36)
-                        {
-                            y = 0;
-                        }
 
                         if (i == 3 || i == 9 || i == 15 || i == 21 || i == 27 || i == 33)
                         {
@@ -200,9 +199,7 @@ namespace PICartagena
 
                 if (t.Simbolo == "C")
                 {
-                    Bitmap image = new Bitmap("\\ElementosTabuleiro\\ChaveE.png");
-
-                    t.Img = image;
+                    t.Img = PICartagena.Properties.Resources.ChaveE;
                 }
 
                 if (t.Simbolo == "E")
@@ -244,5 +241,9 @@ namespace PICartagena
             return l;
         }
 
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
