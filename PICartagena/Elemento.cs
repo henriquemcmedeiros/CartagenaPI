@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 public class Elemento {
@@ -8,8 +9,9 @@ public class Elemento {
         int w, h;
 
         Image img;
+        //public List<Pirata> piratas;
 
-        public string Simbolo
+    public string Simbolo
         {
             get { return simbolo; }
             set { simbolo = value; }

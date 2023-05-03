@@ -20,6 +20,8 @@ namespace PICartagena
         List<Elemento> tabuleiro = new List<Elemento>();
         List<Pirata> piratas = new List<Pirata> { };
         List<Panel> panelPosTabuleiro = new List<Panel>();
+        List<Jogador> jogadores = new List<Jogador>();
+        List<PictureBox> picPiratas = new List<PictureBox>();
         public Form2(Partida partida, Jogador jogador)
         {
             InitializeComponent();
@@ -32,9 +34,8 @@ namespace PICartagena
             jogador.ReceberCartas();
             AtualizarQntCartas();
 
-            MessageBox.Show(Jogo.ExibirTabuleiro(partida.Id));
-
             IniciarTabuleiro();
+            exibirTabuleiro();
 
             //MessageBox.Show(Jogo.VerificarVez(partida.Id));
         }
@@ -94,7 +95,6 @@ namespace PICartagena
         {
             jogador.ReceberCartas();
             AtualizarQntCartas();
-            exibirTabuleiro();
         }
 
         private void exibirTabuleiro()
@@ -113,7 +113,7 @@ namespace PICartagena
 
                 this.panelPosTabuleiro.Clear();
 
-                for (int i = 0; i < this.tabuleiro.Count; i++)
+                for (int i = 1; i < this.tabuleiro.Count - 1; i++)
                 {
                     this.tabuleiro[i].X = x;
                     this.tabuleiro[i].Y = y;
@@ -139,41 +139,15 @@ namespace PICartagena
 
                     if (i >= 1)
                     {
-                        if (i < 3)
+                        if (i < 3 || (i > 9 && i < 15) || (i > 21 && i < 27) || i > 33)
                         {
                             x += 128;
                         }
 
-                        if (i > 3 && i < 9)
+                        if ((i > 3 && i < 9) || (i > 15 && i < 21) || (i > 27 && i < 33))
                         {
                             x -= 128;
                         }
-
-                        if (i > 9 && i < 15)
-                        {
-                            x += 128;
-                        }
-
-                        if (i > 15 && i < 21)
-                        {
-                            x -= 128;
-                        }
-
-                        if (i > 21 && i < 27)
-                        {
-                            x += 128;
-                        }
-
-                        if (i > 27 && i < 33)
-                        {
-                            x -= 128;
-                        }
-
-                        if (i > 33)
-                        {
-                            x += 128;
-                        }
-
 
                         if (i == 3 || i == 9 || i == 15 || i == 21 || i == 27 || i == 33)
                         {
@@ -233,9 +207,111 @@ namespace PICartagena
             return l;
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void exibirPiratas()
         {
+            try
+            {
+                this.jogadores = atualizarImgPiratas(this.jogadores);
 
+                this.picPiratas.Clear();
+
+                for (int i = 0; i < this.panelPosTabuleiro.Count; i++)
+                {
+                    this.panelPosTabuleiro[i].Controls.Clear();
+                }
+
+                for (int i = 0; i < this.tabuleiro.Count; i++)
+                {
+                    int x = 25, y = 0;
+                    int x0 = 4, y0 = 18;
+                    int xF = 57, yF = 0;
+
+                    for (int j = 0; j < this.piratas.Count; j++)
+                    {
+                        PictureBox p = new PictureBox();
+                        p.Width = 18;
+                        p.Height = 18;
+                        p.BackgroundImageLayout = ImageLayout.Stretch;
+                        p.BackgroundImage = this.tabuleiro[i].Piratas[j].Jogador.ImgPirata;
+
+                        if (i == 0)
+                        {
+                            p.Location = new System.Drawing.Point(x0, y0);
+                            x0 += 20;
+
+                            if (j == 11 || j == 23)
+                            {
+                                x0 = 4;
+                                y0 += 22;
+                            }
+                        }
+                        else if (i == 37)
+                        {
+                            p.Location = new System.Drawing.Point(xF, yF);
+                            xF += 20;
+
+                            if (j == 5 || j == 11 || j == 17 || j == 23)
+                            {
+                                xF = 57;
+                                yF += 18;
+                            }
+                        }
+                        else
+                        {
+                            p.Location = new System.Drawing.Point(x, y);
+                            y += 18;
+                        }
+
+                        this.picPiratas.Add(p);
+                        panelPosTabuleiro[i].Controls.Add(p);
+                    }
+
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("ERRO na exibição dos personagens");
+            }
+        }
+
+
+        private List<Jogador> atualizarImgPiratas(List<Jogador> j)
+        {
+            foreach (Jogador jo in j)
+            {
+                if (jo.Cor.Equals("Vermelho"))
+                {
+                    jo.ImgPirata = Cartagena.Properties.Resources.vermelho;
+                    jo.ColorPirata = System.Drawing.Color.FromArgb(152, 28, 12);
+                }
+
+                if (jo.Cor.Equals("Azul"))
+                {
+                    jo.ImgPirata = Cartagena.Properties.Resources.azul;
+                    jo.ColorPirata = System.Drawing.Color.FromArgb(12, 135, 152);
+                }
+
+                if (jo.Cor.Equals("Amarelo"))
+                {
+                    jo.ImgPirata = Cartagena.Properties.Resources.amarelo;
+                    jo.ColorPirata = System.Drawing.Color.FromArgb(228, 220, 36);
+                }
+
+                if (jo.Cor.Equals("Verde"))
+                {
+                    jo.ImgPirata = Cartagena.Properties.Resources.verde;
+                    jo.ColorPirata = System.Drawing.Color.FromArgb(12, 148, 25);
+                }
+
+                if (jo.Cor.Equals("Marrom"))
+                {
+                    jo.ImgPirata = Properties.Resources.marrom;
+                    jo.ColorPirata = System.Drawing.Color.FromArgb(76, 4, 4);
+                }
+            }
+
+            return j;
         }
     }
 }
