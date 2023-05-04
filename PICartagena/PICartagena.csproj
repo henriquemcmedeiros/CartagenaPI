@@ -104,6 +104,10 @@
   <ItemGroup>
     <Content Include="henricola.ico" />
     <Content Include="HenricolaBarraDeTarefas.ico" />
+    <None Include="Resources\vermelho.png" />
+    <None Include="Resources\verde.png" />
+    <None Include="Resources\azul.png" />
+    <None Include="Resources\amarelo.png" />
     <None Include="Resources\TricorinioE.png" />
     <None Include="Resources\PistolaE.png" />
     <None Include="Resources\GarrafaE.png" />

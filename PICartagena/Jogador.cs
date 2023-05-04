@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
 
 public class Jogador
 {
@@ -11,6 +12,9 @@ public class Jogador
     private string _cor;
     private string _senha;
     public Carta cartasMao = new Carta();
+
+    public Color colorPirata;
+    public Image ImgPirata;
 
     public int Id
     {

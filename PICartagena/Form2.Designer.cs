@@ -154,7 +154,7 @@
             // btnJogar
             // 
             this.btnJogar.Location = new System.Drawing.Point(420, 156);
-            this.btnJogar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(86, 27);
             this.btnJogar.TabIndex = 8;
@@ -165,7 +165,7 @@
             // txtCarta
             // 
             this.txtCarta.Location = new System.Drawing.Point(420, 91);
-            this.txtCarta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCarta.Margin = new System.Windows.Forms.Padding(2);
             this.txtCarta.Name = "txtCarta";
             this.txtCarta.Size = new System.Drawing.Size(87, 20);
             this.txtCarta.TabIndex = 9;
@@ -257,14 +257,14 @@
             // 
             // tmrPrincipal
             // 
-            this.tmrPrincipal.Interval = 10000;
+            this.tmrPrincipal.Interval = 5000;
             this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
             // 
             // pnlTabuleiro
             // 
             this.pnlTabuleiro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTabuleiro.BackgroundImage")));
             this.pnlTabuleiro.Location = new System.Drawing.Point(595, 33);
-            this.pnlTabuleiro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlTabuleiro.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTabuleiro.Name = "pnlTabuleiro";
             this.pnlTabuleiro.Size = new System.Drawing.Size(816, 970);
             this.pnlTabuleiro.TabIndex = 19;
@@ -295,7 +295,7 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

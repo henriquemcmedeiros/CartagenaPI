@@ -95,6 +95,8 @@ namespace PICartagena
         {
             jogador.ReceberCartas();
             AtualizarQntCartas();
+
+            exibirPiratas();
         }
 
         private void exibirTabuleiro()
@@ -222,17 +224,24 @@ namespace PICartagena
 
                 for (int i = 0; i < this.tabuleiro.Count; i++)
                 {
+                    // Posição piratas primeira casa
                     int x = 25, y = 0;
+                    // Posição inicial dos piratas
                     int x0 = 4, y0 = 18;
+                    // Posição final dos piratas - Barco
                     int xF = 57, yF = 0;
 
                     for (int j = 0; j < this.piratas.Count; j++)
                     {
                         PictureBox p = new PictureBox();
+
+                        // Tamanho dos piratas
                         p.Width = 18;
                         p.Height = 18;
+
+                        // Configurações da imagem dos piratas
                         p.BackgroundImageLayout = ImageLayout.Stretch;
-                        p.BackgroundImage = this.tabuleiro[i].Piratas[j].Jogador.ImgPirata;
+                        p.BackgroundImage = this.jogadores[j].ImgPirata;
 
                         if (i == 0)
                         {
@@ -276,42 +285,36 @@ namespace PICartagena
         }
 
 
-        private List<Jogador> atualizarImgPiratas(List<Jogador> j)
+        private List<Jogador> atualizarImgPiratas(List<Jogador> jogadores)
         {
-            foreach (Jogador jo in j)
+            foreach (Jogador jogador in jogadores)
             {
-                if (jo.Cor.Equals("Vermelho"))
+                if (jogador.Cor.Equals("Vermelho"))
                 {
-                    jo.ImgPirata = Cartagena.Properties.Resources.vermelho;
-                    jo.ColorPirata = System.Drawing.Color.FromArgb(152, 28, 12);
+                    jogador.ImgPirata = PICartagena.Properties.Resources.vermelho;
+                    jogador.colorPirata = System.Drawing.Color.FromArgb(152, 28, 12);
                 }
 
-                if (jo.Cor.Equals("Azul"))
+                if (jogador.Cor.Equals("Azul"))
                 {
-                    jo.ImgPirata = Cartagena.Properties.Resources.azul;
-                    jo.ColorPirata = System.Drawing.Color.FromArgb(12, 135, 152);
+                    jogador.ImgPirata = PICartagena.Properties.Resources.azul;
+                    jogador.colorPirata = System.Drawing.Color.FromArgb(12, 135, 152);
                 }
 
-                if (jo.Cor.Equals("Amarelo"))
+                if (jogador.Cor.Equals("Amarelo"))
                 {
-                    jo.ImgPirata = Cartagena.Properties.Resources.amarelo;
-                    jo.ColorPirata = System.Drawing.Color.FromArgb(228, 220, 36);
+                    jogador.ImgPirata = PICartagena.Properties.Resources.amarelo;
+                    jogador.colorPirata = System.Drawing.Color.FromArgb(228, 220, 36);
                 }
 
-                if (jo.Cor.Equals("Verde"))
+                if (jogador.Cor.Equals("Verde"))
                 {
-                    jo.ImgPirata = Cartagena.Properties.Resources.verde;
-                    jo.ColorPirata = System.Drawing.Color.FromArgb(12, 148, 25);
-                }
-
-                if (jo.Cor.Equals("Marrom"))
-                {
-                    jo.ImgPirata = Properties.Resources.marrom;
-                    jo.ColorPirata = System.Drawing.Color.FromArgb(76, 4, 4);
+                    jogador.ImgPirata = PICartagena.Properties.Resources.verde;
+                    jogador.colorPirata = System.Drawing.Color.FromArgb(12, 148, 25);
                 }
             }
 
-            return j;
+            return jogadores;
         }
     }
 }
