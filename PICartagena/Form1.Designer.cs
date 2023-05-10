@@ -227,7 +227,7 @@
             // 
             // tmrEntrarPartida
             // 
-            this.tmrEntrarPartida.Interval = 5000;
+            this.tmrEntrarPartida.Interval = 10000;
             this.tmrEntrarPartida.Tick += new System.EventHandler(this.tmrEntrarPartida_Tick);
             // 
             // frmIniciar

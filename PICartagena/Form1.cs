@@ -153,9 +153,9 @@ namespace PICartagena
             // Verifica se alguma partida foi selecionada
             if (lstListarPartidas.SelectedItem != null && partida.Id != 0)
             {
-                string[] retornoJogadores = Jogo.ListarJogadores(partida.Id).Replace("\r", "").Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] retornoJogadores = Jogo.ListarJogadores(partida.Id).Replace("\r", "").Split('\n');
 
-                if (retornoJogadores[0].StartsWith("ERRO"))
+                if (retornoJogadores[0].StartsWith("ERRO") || !(retornoJogadores[retornoJogadores.Length - 1] == ""))
                 {
                     MessageBox.Show(retornoJogadores[0]);
                 }
@@ -165,15 +165,18 @@ namespace PICartagena
 
                     foreach (string jo in retornoJogadores)
                     {
-                        string[] item = jo.Split(',');
+                        if (jo != "")
+                        {
+                            string[] item = jo.Split(',');
 
-                        Jogador auxiliar = new Jogador();
+                            Jogador auxiliar = new Jogador();
 
-                        auxiliar.Id = Convert.ToInt32(item[0]);
-                        auxiliar.Nome = item[1];
-                        auxiliar.Cor = item[2];
+                            auxiliar.Id = Convert.ToInt32(item[0]);
+                            auxiliar.Nome = item[1];
+                            auxiliar.Cor = item[2];
 
-                        jogadores.Add(auxiliar);
+                            jogadores.Add(auxiliar);
+                        }
                     }
                 }
             }
