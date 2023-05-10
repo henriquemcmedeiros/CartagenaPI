@@ -257,7 +257,7 @@
             // 
             // tmrPrincipal
             // 
-            this.tmrPrincipal.Interval = 5000;
+            this.tmrPrincipal.Interval = 10000;
             this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
             // 
             // pnlTabuleiro

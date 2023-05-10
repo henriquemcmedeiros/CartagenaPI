@@ -98,9 +98,10 @@ namespace PICartagena
             jogador.ReceberCartas();
             AtualizarQntCartas();
 
-            lblJogadorAtual.Text = VerificarVezCor(jogadores);
+            lblJogadorAtual.Text = "É a vez do jogador: " + VerificarVezCor(jogadores);
 
             exibirPiratas();
+            exibirTabuleiro();
         }
 
         private void exibirTabuleiro()
@@ -123,14 +124,6 @@ namespace PICartagena
                 {
                     this.tabuleiro[i].X = x;
                     this.tabuleiro[i].Y = y;
-
-                    // Posição 0 do tabuleiro
-
-                   /* if (i == 0)
-                    {
-                        this.tabuleiro[i].X = 3;
-                        this.tabuleiro[i].Y = 569;
-                    } */
 
                     Panel p = new Panel();
 
@@ -229,21 +222,25 @@ namespace PICartagena
                     this.panelPosTabuleiro[i].Controls.Clear();
                 }
 
+                this.pnlTabuleiro.Controls.Clear();
+
                 for (int i = 0; i < this.tabuleiro.Count; i++)
                 {
                     // Posição piratas primeira casa
                     int x0 = 12, y0 = 845;
-                    // Posição inicial dos piratas
-                    int x = 501, y = 842;
+                    
                     // Posição final dos piratas - Barco
                     int xF = 481, yF = 48;
+
+                    // Posição inicial dos piratas
+                    int x = 501, y = 842;
+
                     int a = 0;
 
                     for (int j = 0; j < this.piratas.Count; j++)
                     {
                         for (int k = 0; k < this.jogadores.Count; k++)
                         {
-
                             if (piratas[j].idJogador == jogadores[k].Id)
                             {
                                 for (int l = 0; l < piratas[j].qntPiratas; l++)
@@ -284,12 +281,34 @@ namespace PICartagena
                                     }
                                     else
                                     {
+                                        /*if (QntPiratasNaPosição(piratas, i) != 0)
+                                        {
+                                            y += 32 * (1 + QntPiratasNaPosição(piratas, i));
+                                        }*/
+
+                                        for (int m = 0; m < piratas[j].PosTabuleiro; m++)
+                                        {
+                                            if (piratas[j].PosTabuleiro > 1)
+                                            {
+                                                if (m < 3 || (m > 9 && m < 15) || (m > 21 && m < 27) || m > 33)
+                                                {
+                                                    x += 128;
+                                                }
+                                                else if ((m > 3 && m < 9) || (m > 15 && m < 21) || (m > 27 && m < 33))
+                                                {
+                                                    x -= 128;
+                                                }
+                                                else if (m == 3 || m == 9 || m == 15 || m == 21 || m == 27 || m == 33)
+                                                {
+                                                    y -= 128;
+                                                }
+                                            }
+                                        }
+
                                         p.Location = new System.Drawing.Point(x, y);
-                                        y += 32;
                                     }
 
                                     this.picPiratas.Add(p);
-                                    //panelPosTabuleiro[i].Controls.Add(p);
                                     pnlTabuleiro.Controls.Add(p);
                                 }
                             }
