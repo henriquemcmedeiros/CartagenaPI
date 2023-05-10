@@ -16,7 +16,7 @@ namespace PICartagena
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new txtNomeDaPartida());
+            Application.Run(new frmIniciar());
         }
     }
 }

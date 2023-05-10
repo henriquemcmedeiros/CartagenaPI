@@ -1,6 +1,6 @@
 ﻿namespace PICartagena
 {
-    partial class txtNomeDaPartida
+    partial class frmIniciar
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(txtNomeDaPartida));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIniciar));
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.lstListarPartidas = new System.Windows.Forms.ListBox();
             this.btnCriarPartida = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.lblNomeDoJogador = new System.Windows.Forms.Label();
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
+            this.tmrEntrarPartida = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -223,7 +225,12 @@
             this.btnIniciarPartida.UseVisualStyleBackColor = true;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
             // 
-            // txtNomeDaPartida
+            // tmrEntrarPartida
+            // 
+            this.tmrEntrarPartida.Interval = 5000;
+            this.tmrEntrarPartida.Tick += new System.EventHandler(this.tmrEntrarPartida_Tick);
+            // 
+            // frmIniciar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -250,7 +257,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.Name = "txtNomeDaPartida";
+            this.Name = "frmIniciar";
             this.Text = "Palmira";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -277,6 +284,7 @@
         private System.Windows.Forms.Label lblNomeDoJogador;
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.Button btnIniciarPartida;
+        private System.Windows.Forms.Timer tmrEntrarPartida;
     }
 }
 
