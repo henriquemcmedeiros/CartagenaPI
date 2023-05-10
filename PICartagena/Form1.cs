@@ -130,20 +130,21 @@ namespace PICartagena
         {
             string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
             string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
+            bool aberto = false;
 
-            if (PrimeiraLinhaVerificaVez[0] == "J")
+            if (PrimeiraLinhaVerificaVez[0] == "J" && !aberto)
             {
                 foreach (Jogador jo in jogadores)
                 {
                     if (jo.Id == jogador.Id)
                     {
                         partida.status = "J";
-                        Form f2 = new Form2(partida, jogador);
+                        tmrEntrarPartida.Stop();
+                        Form f2 = new Form2(partida, jogador, jogadores);
                         this.Hide();
                         f2.ShowDialog();
                     }
                 }
-                
             }
         }
 

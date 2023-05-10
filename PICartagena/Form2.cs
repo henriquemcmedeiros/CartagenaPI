@@ -22,12 +22,13 @@ namespace PICartagena
         List<Panel> panelPosTabuleiro = new List<Panel>();
         List<Jogador> jogadores = new List<Jogador>();
         List<PictureBox> picPiratas = new List<PictureBox>();
-        public Form2(Partida partida, Jogador jogador)
+        public Form2(Partida partida, Jogador jogador, List<Jogador> jogadores)
         {
             InitializeComponent();
 
             this.partida = partida;
             this.jogador = jogador;
+            this.jogadores = jogadores;
 
             tmrPrincipal.Start();
 
