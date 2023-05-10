@@ -262,6 +262,7 @@
             // 
             // pnlTabuleiro
             // 
+            this.pnlTabuleiro.BackColor = System.Drawing.Color.Transparent;
             this.pnlTabuleiro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTabuleiro.BackgroundImage")));
             this.pnlTabuleiro.Location = new System.Drawing.Point(595, 33);
             this.pnlTabuleiro.Margin = new System.Windows.Forms.Padding(2);

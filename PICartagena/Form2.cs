@@ -39,6 +39,7 @@ namespace PICartagena
             exibirTabuleiro();
 
             //MessageBox.Show(Jogo.VerificarVez(partida.Id));
+            lblJogadorAtual.Text = VerificarVezCor(jogadores);
         }
 
         public void AtualizarQntCartas()
@@ -96,6 +97,8 @@ namespace PICartagena
         {
             jogador.ReceberCartas();
             AtualizarQntCartas();
+
+            lblJogadorAtual.Text = VerificarVezCor(jogadores);
 
             exibirPiratas();
         }
@@ -229,16 +232,18 @@ namespace PICartagena
                 for (int i = 0; i < this.tabuleiro.Count; i++)
                 {
                     // Posição piratas primeira casa
-                    int x = 25, y = 0;
+                    int x0 = 12, y0 = 845;
                     // Posição inicial dos piratas
-                    int x0 = 4, y0 = 18;
+                    int x = 501, y = 842;
                     // Posição final dos piratas - Barco
-                    int xF = 57, yF = 0;
+                    int xF = 481, yF = 48;
+                    int a = 0;
 
                     for (int j = 0; j < this.piratas.Count; j++)
                     {
                         for (int k = 0; k < this.jogadores.Count; k++)
                         {
+
                             if (piratas[j].idJogador == jogadores[k].Id)
                             {
                                 for (int l = 0; l < piratas[j].qntPiratas; l++)
@@ -248,40 +253,44 @@ namespace PICartagena
                                     // Tamanho dos piratas
                                     p.Width = 30;
                                     p.Height = 30;
+
                                     // Configurações da imagem dos piratas
                                     p.BackgroundImageLayout = ImageLayout.Stretch;
-                                    p.BackgroundImage = this.jogadores[i].ImgPirata;
+                                    p.BackgroundImage = this.jogadores[k].ImgPirata;
+                                    p.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
 
                                     if (piratas[j].PosTabuleiro == 0)
                                     {
                                         p.Location = new System.Drawing.Point(x0, y0);
                                         x0 += 32;
 
-                                        if (j == 11 || j == 23)
+                                        if (a == 11 || a == 23)
                                         {
-                                            x0 = 8;
-                                            y0 += 44;
+                                            x0 = 12;
+                                            y0 += 32;
                                         }
+                                        a++;
                                     }
                                     else if (piratas[j].PosTabuleiro == 37)
                                     {
                                         p.Location = new System.Drawing.Point(xF, yF);
                                         xF += 32;
 
-                                        if (j == 5 || j == 11 || j == 17 || j == 23)
+                                        if (a == 5 || a == 11 || a == 17 || a == 23)
                                         {
-                                            xF = 108;
-                                            yF += 36;
+                                            xF = 481;
+                                            yF += 32;
                                         }
                                     }
                                     else
                                     {
                                         p.Location = new System.Drawing.Point(x, y);
-                                        y += 30;
+                                        y += 32;
                                     }
 
                                     this.picPiratas.Add(p);
-                                    panelPosTabuleiro[i].Controls.Add(p);
+                                    //panelPosTabuleiro[i].Controls.Add(p);
+                                    pnlTabuleiro.Controls.Add(p);
                                 }
                             }
                         }
@@ -328,5 +337,37 @@ namespace PICartagena
 
             return jogadores;
         }
+
+        private int QntPiratasNaPosição(List<Pirata> piratas, int pos)
+        {
+            int qntPiratas = 0;
+            foreach (Pirata p in piratas)
+            {
+                if (p.PosTabuleiro == pos)
+                {
+                    qntPiratas++;
+                }
+            }
+            return qntPiratas;
+        }
+
+        private string VerificarVezCor(List<Jogador> jogadores)
+        {
+            string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
+            string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
+
+            string corDoJogadorAtual = "ERRO! Cor não encontrada";
+
+            foreach (Jogador jo in jogadores)
+            {
+                if (jo.Id == Convert.ToInt32(PrimeiraLinhaVerificaVez[1]))
+                {
+                    corDoJogadorAtual = jo.Cor;
+                }
+            }
+
+            return corDoJogadorAtual;
+        }
     }
+
 }
