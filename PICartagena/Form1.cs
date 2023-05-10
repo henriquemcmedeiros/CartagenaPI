@@ -185,6 +185,14 @@ namespace PICartagena
         private void tmrEntrarPartida_Tick(object sender, EventArgs e)
         {
             VerificarEAdicionarListaJogadores();
+
+            string listaDeJogadores = Jogo.ListarJogadores(partida.Id);
+            if (!listaDeJogadores.StartsWith("ERRO"))
+            {
+                lblListaJogadores.Text = listaDeJogadores;
+            }
+            
+
             entrarNaPartida(partida, jogador);
         }
     }

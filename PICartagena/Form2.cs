@@ -216,6 +216,9 @@ namespace PICartagena
             {
                 this.jogadores = atualizarImgPiratas(this.jogadores);
 
+                string retornoPiratas = Jogo.VerificarVez(partida.Id);
+                this.piratas = jogador.AtualizarPiratas(piratas, retornoPiratas);
+
                 this.picPiratas.Clear();
 
                 for (int i = 0; i < this.panelPosTabuleiro.Count; i++)
@@ -234,46 +237,54 @@ namespace PICartagena
 
                     for (int j = 0; j < this.piratas.Count; j++)
                     {
-                        PictureBox p = new PictureBox();
-
-                        // Tamanho dos piratas
-                        p.Width = 18;
-                        p.Height = 18;
-
-                        // Configurações da imagem dos piratas
-                        p.BackgroundImageLayout = ImageLayout.Stretch;
-                        p.BackgroundImage = this.jogadores[j].ImgPirata;
-
-                        if (i == 0)
+                        for (int k = 0; k < this.jogadores.Count; k++)
                         {
-                            p.Location = new System.Drawing.Point(x0, y0);
-                            x0 += 20;
-
-                            if (j == 11 || j == 23)
+                            if (piratas[j].idJogador == jogadores[k].Id)
                             {
-                                x0 = 4;
-                                y0 += 22;
+                                for (int l = 0; l < piratas[j].qntPiratas; l++)
+                                {
+                                    PictureBox p = new PictureBox();
+
+                                    // Tamanho dos piratas
+                                    p.Width = 30;
+                                    p.Height = 30;
+                                    // Configurações da imagem dos piratas
+                                    p.BackgroundImageLayout = ImageLayout.Stretch;
+                                    p.BackgroundImage = this.jogadores[i].ImgPirata;
+
+                                    if (piratas[j].PosTabuleiro == 0)
+                                    {
+                                        p.Location = new System.Drawing.Point(x0, y0);
+                                        x0 += 32;
+
+                                        if (j == 11 || j == 23)
+                                        {
+                                            x0 = 8;
+                                            y0 += 44;
+                                        }
+                                    }
+                                    else if (piratas[j].PosTabuleiro == 37)
+                                    {
+                                        p.Location = new System.Drawing.Point(xF, yF);
+                                        xF += 32;
+
+                                        if (j == 5 || j == 11 || j == 17 || j == 23)
+                                        {
+                                            xF = 108;
+                                            yF += 36;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        p.Location = new System.Drawing.Point(x, y);
+                                        y += 30;
+                                    }
+
+                                    this.picPiratas.Add(p);
+                                    panelPosTabuleiro[i].Controls.Add(p);
+                                }
                             }
                         }
-                        else if (i == 37)
-                        {
-                            p.Location = new System.Drawing.Point(xF, yF);
-                            xF += 20;
-
-                            if (j == 5 || j == 11 || j == 17 || j == 23)
-                            {
-                                xF = 57;
-                                yF += 18;
-                            }
-                        }
-                        else
-                        {
-                            p.Location = new System.Drawing.Point(x, y);
-                            y += 18;
-                        }
-
-                        this.picPiratas.Add(p);
-                        panelPosTabuleiro[i].Controls.Add(p);
                     }
 
                 }
