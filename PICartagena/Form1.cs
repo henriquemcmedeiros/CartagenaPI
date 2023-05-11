@@ -191,7 +191,6 @@ namespace PICartagena
             {
                 lblListaJogadores.Text = listaDeJogadores;
             }
-            
 
             entrarNaPartida(partida, jogador);
         }

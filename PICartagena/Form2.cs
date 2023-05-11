@@ -1,4 +1,5 @@
 ﻿using CartagenaServer;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -232,9 +233,6 @@ namespace PICartagena
                     // Posição final dos piratas - Barco
                     int xF = 481, yF = 48;
 
-                    // Posição inicial dos piratas
-                    int x = 501, y = 842;
-
                     int a = 0;
 
                     for (int j = 0; j < this.piratas.Count; j++)
@@ -246,15 +244,36 @@ namespace PICartagena
                                 for (int l = 0; l < piratas[j].qntPiratas; l++)
                                 {
                                     PictureBox p = new PictureBox();
+                                    PictureBox p1 = new PictureBox();
+                                    PictureBox p2 = new PictureBox();
+
+                                    int blue = 0;
+
+                                    // Posição inicial dos piratas
+                                    int x = 501, y = 842;
 
                                     // Tamanho dos piratas
                                     p.Width = 30;
+                                    p1.Width = 30;
+                                    p2.Width = 30;
                                     p.Height = 30;
+                                    p1.Height = 30;
+                                    p2.Height = 30;
 
                                     // Configurações da imagem dos piratas
                                     p.BackgroundImageLayout = ImageLayout.Stretch;
                                     p.BackgroundImage = this.jogadores[k].ImgPirata;
                                     p.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+
+                                    p1.BackgroundImageLayout = ImageLayout.Stretch;
+                                    p1.BackgroundImage = this.jogadores[k].ImgPirata;
+                                    p1.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+
+                                    p2.BackgroundImageLayout = ImageLayout.Stretch;
+                                    p2.BackgroundImage = this.jogadores[k].ImgPirata;
+                                    p2.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+
+                                    int piratasAqui = QntPiratasNaPosição(piratas, piratas[j].PosTabuleiro);
 
                                     if (piratas[j].PosTabuleiro == 0)
                                     {
@@ -281,16 +300,11 @@ namespace PICartagena
                                     }
                                     else
                                     {
-                                        /*if (QntPiratasNaPosição(piratas, i) != 0)
-                                        {
-                                            y += 32 * (1 + QntPiratasNaPosição(piratas, i));
-                                        }*/
-
-                                        for (int m = 0; m < piratas[j].PosTabuleiro; m++)
+                                        for (int m = 1; m < piratas[j].PosTabuleiro; m++)
                                         {
                                             if (piratas[j].PosTabuleiro > 1)
                                             {
-                                                if (m < 3 || (m > 9 && m < 15) || (m > 21 && m < 27) || m > 33)
+                                                if ((m < 3) || (m > 9 && m < 15) || (m > 21 && m < 27) || (m > 33))
                                                 {
                                                     x += 128;
                                                 }
@@ -298,7 +312,7 @@ namespace PICartagena
                                                 {
                                                     x -= 128;
                                                 }
-                                                else if (m == 3 || m == 9 || m == 15 || m == 21 || m == 27 || m == 33)
+                                                else if ((m == 3) || (m == 9) || (m == 15) || (m == 21) || (m == 27) || (m == 33))
                                                 {
                                                     y -= 128;
                                                 }
@@ -306,17 +320,41 @@ namespace PICartagena
                                         }
 
                                         p.Location = new System.Drawing.Point(x, y);
+
+                                        if (piratasAqui > 1)
+                                        {
+                                            y += 32;
+                                            if (piratasAqui == 3)
+                                            {
+                                                p2.Location = new System.Drawing.Point(x, y);
+                                                y += 32;
+                                            }
+                                            p1.Location = new System.Drawing.Point(x, y);
+                                        }
                                     }
 
-                                    this.picPiratas.Add(p);
-                                    pnlTabuleiro.Controls.Add(p);
+                                    if (blue < 6)
+                                    {
+                                        this.picPiratas.Add(p);
+                                        pnlTabuleiro.Controls.Add(p);
+
+                                        if (piratasAqui > 1)
+                                        {
+                                            if (piratasAqui == 3)
+                                            {
+                                                this.picPiratas.Add(p2);
+                                                pnlTabuleiro.Controls.Add(p2);
+                                            }
+                                            this.picPiratas.Add(p1);
+                                            pnlTabuleiro.Controls.Add(p1);
+                                        }
+                                        blue++;
+                                    }
                                 }
                             }
                         }
                     }
-
                 }
-
             }
             catch
             {
@@ -364,7 +402,7 @@ namespace PICartagena
             {
                 if (p.PosTabuleiro == pos)
                 {
-                    qntPiratas++;
+                    qntPiratas = p.qntPiratas;
                 }
             }
             return qntPiratas;
