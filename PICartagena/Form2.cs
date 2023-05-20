@@ -425,6 +425,26 @@ namespace PICartagena
 
             return corDoJogadorAtual;
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlTabuleiro_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtCarta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJogadorAtual_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

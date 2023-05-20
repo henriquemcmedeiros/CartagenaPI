@@ -259,6 +259,7 @@
             this.MaximizeBox = false;
             this.Name = "frmIniciar";
             this.Text = "Palmira";
+            this.Load += new System.EventHandler(this.frmIniciar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

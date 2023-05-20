@@ -68,6 +68,7 @@
             this.lblJogadorAtual.Size = new System.Drawing.Size(97, 13);
             this.lblJogadorAtual.TabIndex = 0;
             this.lblJogadorAtual.Text = "O Jogador atual é: ";
+            this.lblJogadorAtual.Click += new System.EventHandler(this.lblJogadorAtual_Click);
             // 
             // lblEsqueleto
             // 
@@ -169,6 +170,7 @@
             this.txtCarta.Name = "txtCarta";
             this.txtCarta.Size = new System.Drawing.Size(87, 20);
             this.txtCarta.TabIndex = 9;
+            this.txtCarta.TextChanged += new System.EventHandler(this.txtCarta_TextChanged);
             // 
             // pictureBox1
             // 
@@ -269,11 +271,13 @@
             this.pnlTabuleiro.Name = "pnlTabuleiro";
             this.pnlTabuleiro.Size = new System.Drawing.Size(816, 970);
             this.pnlTabuleiro.TabIndex = 19;
+            this.pnlTabuleiro.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTabuleiro_Paint);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1469, 1025);
             this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblCarta);
@@ -299,6 +303,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -311,8 +316,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblJogadorAtual;
         private System.Windows.Forms.Label lblEsqueleto;
         private System.Windows.Forms.Label lblFaca;
         private System.Windows.Forms.Label lblGarrafa;
@@ -333,5 +336,6 @@
         private System.Windows.Forms.Label lblCarta;
         private System.Windows.Forms.Timer tmrPrincipal;
         private System.Windows.Forms.Panel pnlTabuleiro;
+        private System.Windows.Forms.Label lblJogadorAtual;
     }
 }
