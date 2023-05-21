@@ -50,6 +50,7 @@
             this.lblPosicaoPirata = new System.Windows.Forms.Label();
             this.lblCarta = new System.Windows.Forms.Label();
             this.tmrPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlTabuleiro = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -262,6 +263,15 @@
             this.tmrPrincipal.Interval = 10000;
             this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Location = new System.Drawing.Point(23, 241);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(379, 506);
+            this.panel1.TabIndex = 20;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // pnlTabuleiro
             // 
             this.pnlTabuleiro.BackColor = System.Drawing.Color.Transparent;
@@ -277,7 +287,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1469, 1025);
             this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblCarta);
@@ -299,6 +308,7 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
@@ -335,7 +345,8 @@
         private System.Windows.Forms.Label lblPosicaoPirata;
         private System.Windows.Forms.Label lblCarta;
         private System.Windows.Forms.Timer tmrPrincipal;
-        private System.Windows.Forms.Panel pnlTabuleiro;
         private System.Windows.Forms.Label lblJogadorAtual;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlTabuleiro;
     }
 }
