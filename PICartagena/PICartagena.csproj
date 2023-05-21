@@ -104,6 +104,7 @@
   <ItemGroup>
     <Content Include="henricola.ico" />
     <Content Include="HenricolaBarraDeTarefas.ico" />
+    <None Include="Resources\BGTabuleiroDef.png" />
     <None Include="Resources\vermelho.png" />
     <None Include="Resources\verde.png" />
     <None Include="Resources\azul.png" />
