@@ -40,17 +40,18 @@
             this.lblTabuleiro = new System.Windows.Forms.Label();
             this.btnJogar = new System.Windows.Forms.Button();
             this.txtCarta = new System.Windows.Forms.TextBox();
+            this.txtPosicaoPirata = new System.Windows.Forms.TextBox();
+            this.lblPosicaoPirata = new System.Windows.Forms.Label();
+            this.lblCarta = new System.Windows.Forms.Label();
+            this.tmrPrincipal = new System.Windows.Forms.Timer(this.components);
+            this.pnlTabuleiro = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.txtPosicaoPirata = new System.Windows.Forms.TextBox();
-            this.lblPosicaoPirata = new System.Windows.Forms.Label();
-            this.lblCarta = new System.Windows.Forms.Label();
-            this.tmrPrincipal = new System.Windows.Forms.Timer(this.components);
-            this.pnlTabuleiro = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -68,6 +69,7 @@
             this.lblJogadorAtual.Size = new System.Drawing.Size(97, 13);
             this.lblJogadorAtual.TabIndex = 0;
             this.lblJogadorAtual.Text = "O Jogador atual é: ";
+            this.lblJogadorAtual.Click += new System.EventHandler(this.lblJogadorAtual_Click);
             // 
             // lblEsqueleto
             // 
@@ -169,6 +171,48 @@
             this.txtCarta.Name = "txtCarta";
             this.txtCarta.Size = new System.Drawing.Size(87, 20);
             this.txtCarta.TabIndex = 9;
+            this.txtCarta.TextChanged += new System.EventHandler(this.txtCarta_TextChanged);
+            // 
+            // txtPosicaoPirata
+            // 
+            this.txtPosicaoPirata.Location = new System.Drawing.Point(420, 131);
+            this.txtPosicaoPirata.Name = "txtPosicaoPirata";
+            this.txtPosicaoPirata.Size = new System.Drawing.Size(86, 20);
+            this.txtPosicaoPirata.TabIndex = 16;
+            // 
+            // lblPosicaoPirata
+            // 
+            this.lblPosicaoPirata.AutoSize = true;
+            this.lblPosicaoPirata.Location = new System.Drawing.Point(417, 115);
+            this.lblPosicaoPirata.Name = "lblPosicaoPirata";
+            this.lblPosicaoPirata.Size = new System.Drawing.Size(78, 13);
+            this.lblPosicaoPirata.TabIndex = 17;
+            this.lblPosicaoPirata.Text = "Posicao Pirata:";
+            // 
+            // lblCarta
+            // 
+            this.lblCarta.AutoSize = true;
+            this.lblCarta.Location = new System.Drawing.Point(417, 75);
+            this.lblCarta.Name = "lblCarta";
+            this.lblCarta.Size = new System.Drawing.Size(35, 13);
+            this.lblCarta.TabIndex = 18;
+            this.lblCarta.Text = "Carta:";
+            // 
+            // tmrPrincipal
+            // 
+            this.tmrPrincipal.Interval = 10000;
+            this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
+            // 
+            // pnlTabuleiro
+            // 
+            this.pnlTabuleiro.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTabuleiro.BackgroundImage = global::PICartagena.Properties.Resources.BGTabuleiroDef;
+            this.pnlTabuleiro.Location = new System.Drawing.Point(595, 33);
+            this.pnlTabuleiro.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlTabuleiro.Name = "pnlTabuleiro";
+            this.pnlTabuleiro.Size = new System.Drawing.Size(816, 970);
+            this.pnlTabuleiro.TabIndex = 19;
+            this.pnlTabuleiro.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTabuleiro_Paint);
             // 
             // pictureBox1
             // 
@@ -230,50 +274,20 @@
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
             // 
-            // txtPosicaoPirata
+            // panel1
             // 
-            this.txtPosicaoPirata.Location = new System.Drawing.Point(420, 131);
-            this.txtPosicaoPirata.Name = "txtPosicaoPirata";
-            this.txtPosicaoPirata.Size = new System.Drawing.Size(86, 20);
-            this.txtPosicaoPirata.TabIndex = 16;
-            // 
-            // lblPosicaoPirata
-            // 
-            this.lblPosicaoPirata.AutoSize = true;
-            this.lblPosicaoPirata.Location = new System.Drawing.Point(417, 115);
-            this.lblPosicaoPirata.Name = "lblPosicaoPirata";
-            this.lblPosicaoPirata.Size = new System.Drawing.Size(78, 13);
-            this.lblPosicaoPirata.TabIndex = 17;
-            this.lblPosicaoPirata.Text = "Posicao Pirata:";
-            // 
-            // lblCarta
-            // 
-            this.lblCarta.AutoSize = true;
-            this.lblCarta.Location = new System.Drawing.Point(417, 75);
-            this.lblCarta.Name = "lblCarta";
-            this.lblCarta.Size = new System.Drawing.Size(35, 13);
-            this.lblCarta.TabIndex = 18;
-            this.lblCarta.Text = "Carta:";
-            // 
-            // tmrPrincipal
-            // 
-            this.tmrPrincipal.Interval = 10000;
-            this.tmrPrincipal.Tick += new System.EventHandler(this.tmrPrincipal_Tick);
-            // 
-            // pnlTabuleiro
-            // 
-            this.pnlTabuleiro.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTabuleiro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTabuleiro.BackgroundImage")));
-            this.pnlTabuleiro.Location = new System.Drawing.Point(595, 33);
-            this.pnlTabuleiro.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlTabuleiro.Name = "pnlTabuleiro";
-            this.pnlTabuleiro.Size = new System.Drawing.Size(816, 970);
-            this.pnlTabuleiro.TabIndex = 19;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Location = new System.Drawing.Point(23, 241);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(379, 506);
+            this.panel1.TabIndex = 20;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1469, 1025);
             this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblCarta);
@@ -295,10 +309,12 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -311,8 +327,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblJogadorAtual;
         private System.Windows.Forms.Label lblEsqueleto;
         private System.Windows.Forms.Label lblFaca;
         private System.Windows.Forms.Label lblGarrafa;
@@ -332,6 +346,8 @@
         private System.Windows.Forms.Label lblPosicaoPirata;
         private System.Windows.Forms.Label lblCarta;
         private System.Windows.Forms.Timer tmrPrincipal;
+        private System.Windows.Forms.Label lblJogadorAtual;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlTabuleiro;
     }
 }

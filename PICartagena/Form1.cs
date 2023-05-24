@@ -192,5 +192,10 @@ namespace PICartagena
 
             entrarNaPartida(partida, jogador);
         }
+
+        private void frmIniciar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
