@@ -89,7 +89,7 @@ public class Jogador
             {
                 // Pula a vez
                 Jogo.Jogar(this.Id, this.Senha);
-                System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                //System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                 return piratas;
             }
 
@@ -112,7 +112,7 @@ public class Jogador
                             System.Windows.Forms.MessageBox.Show(retornoPiratas);
                         }
                         else {
-                            System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                            //System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                             contadorDeLinhas--;
                         }
                     }
@@ -142,7 +142,7 @@ public class Jogador
             }
             if (contadorDeLinhas == piratas.Count)
             {
-                System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                //System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                 System.Windows.Forms.MessageBox.Show("NÃO TEM PIRATA AI VACILAO");
             }
         }

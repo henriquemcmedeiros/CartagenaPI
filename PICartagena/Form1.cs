@@ -24,8 +24,6 @@ namespace PICartagena
             //btnListarPartidas_Click(); //listar partidas automaticamente
         }
 
-
-
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
             lstListarPartidas.Items.Clear();
