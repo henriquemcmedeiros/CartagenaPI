@@ -131,7 +131,7 @@ public class Jogador
                         }
                         else
                         {
-                            System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
+                            //System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
                             contadorDeLinhas--;
                         }
                     }
