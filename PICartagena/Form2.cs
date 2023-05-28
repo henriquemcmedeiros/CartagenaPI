@@ -100,10 +100,17 @@ namespace PICartagena
             jogador.ReceberCartas();
             AtualizarQntCartas();
 
-            lblJogadorAtual.Text = "É a vez do jogador: " + VerificarVezCor(jogadores);
+            string corAtual = VerificarVezCor(jogadores);
+
+            lblJogadorAtual.Text = "É a vez do jogador: " + corAtual;
 
             exibirPiratas();
             exibirTabuleiro();
+
+            if (corAtual + "\r\n" == jogador.Cor)
+            {
+                jogador.Estrategia(partida, piratas);
+            }
         }
 
         private void exibirTabuleiro()
@@ -292,7 +299,7 @@ namespace PICartagena
                                         if (b == 0)
                                         {
                                             // ----- QntPiratasNaPosição Retorna o total de piratas sem distinção da cor
-                                            piratasAqui = QntPiratasNaPosição(piratas, piratas[j].PosTabuleiro);
+                                            //piratasAqui = QntPiratasNaPosição(piratas, piratas[j].PosTabuleiro);
                                             piratasAquiJogador = QntPiratasNaPosiçãoJogador(piratas, piratas[j].PosTabuleiro, this.jogadores[k]);
                                             b++;
                                         }
@@ -368,19 +375,6 @@ namespace PICartagena
             }
 
             return jogadores;
-        }
-
-        private int QntPiratasNaPosição(List<Pirata> piratas, int pos)
-        {
-            int qntPiratas = 0;
-            foreach (Pirata p in piratas)
-            {
-                if (p.PosTabuleiro == pos)
-                {
-                    qntPiratas += p.qntPiratas;
-                }
-            }
-            return qntPiratas;
         }
 
         private int QntPiratasNaPosiçãoJogador(List<Pirata> piratas, int pos, Jogador jogador)

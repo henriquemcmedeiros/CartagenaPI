@@ -69,7 +69,6 @@
             this.lblJogadorAtual.Size = new System.Drawing.Size(97, 13);
             this.lblJogadorAtual.TabIndex = 0;
             this.lblJogadorAtual.Text = "O Jogador atual é: ";
-            this.lblJogadorAtual.Click += new System.EventHandler(this.lblJogadorAtual_Click);
             // 
             // lblEsqueleto
             // 
@@ -171,7 +170,6 @@
             this.txtCarta.Name = "txtCarta";
             this.txtCarta.Size = new System.Drawing.Size(87, 20);
             this.txtCarta.TabIndex = 9;
-            this.txtCarta.TextChanged += new System.EventHandler(this.txtCarta_TextChanged);
             // 
             // txtPosicaoPirata
             // 
@@ -212,7 +210,6 @@
             this.pnlTabuleiro.Name = "pnlTabuleiro";
             this.pnlTabuleiro.Size = new System.Drawing.Size(816, 970);
             this.pnlTabuleiro.TabIndex = 19;
-            this.pnlTabuleiro.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTabuleiro_Paint);
             // 
             // pictureBox1
             // 
@@ -281,7 +278,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(379, 506);
             this.panel1.TabIndex = 20;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Form2
             // 
@@ -314,7 +310,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

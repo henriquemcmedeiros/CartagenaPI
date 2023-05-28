@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 public class Jogador
 {
@@ -186,5 +189,113 @@ public class Jogador
             j++;
         }
         return piratas;
+    }
+
+    public void Estrategia(Partida partida, List<Pirata> piratas)
+    {
+        int pos = OndeGanharCarta(partida, piratas);
+        if (pos != 0 && pos != 37)
+        {
+            this.Jogar(partida, piratas, "", pos);
+        }
+        else
+        {
+            pos = this.IdentificarOUltimo(piratas);
+
+            if (cartasMao.esqueletoQnt > 0)
+            {
+                this.Jogar(partida, piratas, "E", pos);
+                cartasMao.esqueletoQnt--;
+            }
+            else if (cartasMao.facaQnt > 0)
+            {
+                this.Jogar(partida, piratas, "F", pos);
+                cartasMao.facaQnt--;
+            }
+            else if (cartasMao.garrafaQnt > 0)
+            {
+                this.Jogar(partida, piratas, "G", pos);
+                cartasMao.garrafaQnt--;
+            }
+            else if (cartasMao.tricornioQnt > 0)
+            {
+                this.Jogar(partida, piratas, "T", pos);
+                cartasMao.tricornioQnt--;
+            }
+            else if (cartasMao.chaveQnt > 0)
+            {
+                this.Jogar(partida, piratas, "C", pos);
+                cartasMao.chaveQnt--;
+            }
+            else if (cartasMao.pistolaQnt > 0)
+            {
+                this.Jogar(partida, piratas, "P", pos);
+                cartasMao.pistolaQnt--;
+            }
+            else {
+                pos = this.IdentificarOPrimeiro(piratas);
+                this.Jogar(partida, piratas, "", pos);
+            }
+        }
+
+
+    }
+    public int IdentificarOUltimo(List<Pirata> piratas)
+    {
+        List<int> posMeusPiratas = new List<int>();
+        foreach (Pirata p in piratas)
+        {
+            if (this.Id == p.idJogador)
+            {
+                posMeusPiratas.Add(p.PosTabuleiro);
+            }
+        }
+
+        return posMeusPiratas.Min();
+    }
+
+    public int IdentificarOPrimeiro(List<Pirata> piratas)
+    {
+        List<int> posMeusPiratas = new List<int>();
+        foreach (Pirata p in piratas)
+        {
+            if (this.Id == p.idJogador)
+            {
+                posMeusPiratas.Add(p.PosTabuleiro);
+            }
+        }
+
+        return posMeusPiratas.Max();
+    }
+
+    public int OndeGanharCarta(Partida partida, List<Pirata> piratas)
+    {
+        for (int i = piratas.Count - 1; i >= 0; i--)
+        {
+            if (piratas[i].idJogador == this.Id) {
+                int qntPiratas = this.QntPiratasNaPosição(piratas, piratas[i].PosTabuleiro);
+
+                if (qntPiratas == 2)
+                {
+                    return piratas[i].PosTabuleiro;
+                }
+                break;
+            }
+        }
+
+        return 0;
+    }
+
+    private int QntPiratasNaPosição(List<Pirata> piratas, int pos)
+    {
+        int qntPiratas = 0;
+        foreach (Pirata p in piratas)
+        {
+            if (p.PosTabuleiro == pos)
+            {
+                qntPiratas += p.qntPiratas;
+            }
+        }
+        return qntPiratas;
     }
 }
