@@ -296,13 +296,13 @@ namespace PICartagena
                                         int piratasAqui = 0;
                                         int piratasAquiJogador = 0;
 
-                                        if (b == 0)
+                                        /*if (b == 0)
                                         {
                                             // ----- QntPiratasNaPosição Retorna o total de piratas sem distinção da cor
                                             //piratasAqui = QntPiratasNaPosição(piratas, piratas[j].PosTabuleiro);
                                             piratasAquiJogador = QntPiratasNaPosiçãoJogador(piratas, piratas[j].PosTabuleiro, this.jogadores[k]);
                                             b++;
-                                        }
+                                        }*/
 
                                         int x = CalcPirataX(j);
                                         int y = CalcPirataY(j);
@@ -331,11 +331,14 @@ namespace PICartagena
                                         pnlTabuleiro.Controls.Add(p);
                                         blue++;
                                     }
-                                    break;
                                 }
+
+                                break;
                             }
                         }
                     }
+
+                    listPiratasDesenhados.Clear();
                 }
             }
             catch

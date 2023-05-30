@@ -237,8 +237,6 @@ public class Jogador
                 this.Jogar(partida, piratas, "", pos);
             }
         }
-
-
     }
     public int IdentificarOUltimo(List<Pirata> piratas)
     {
@@ -282,7 +280,6 @@ public class Jogador
                 break;
             }
         }
-
         return 0;
     }
 
