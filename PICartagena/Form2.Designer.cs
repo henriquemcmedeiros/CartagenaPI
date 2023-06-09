@@ -58,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblJogadorAtual
@@ -75,7 +76,7 @@
             this.lblEsqueleto.AutoSize = true;
             this.lblEsqueleto.BackColor = System.Drawing.Color.Black;
             this.lblEsqueleto.ForeColor = System.Drawing.Color.Transparent;
-            this.lblEsqueleto.Location = new System.Drawing.Point(118, 366);
+            this.lblEsqueleto.Location = new System.Drawing.Point(97, 98);
             this.lblEsqueleto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEsqueleto.Name = "lblEsqueleto";
             this.lblEsqueleto.Size = new System.Drawing.Size(14, 13);
@@ -87,7 +88,7 @@
             this.lblFaca.AutoSize = true;
             this.lblFaca.BackColor = System.Drawing.Color.Black;
             this.lblFaca.ForeColor = System.Drawing.Color.Transparent;
-            this.lblFaca.Location = new System.Drawing.Point(245, 366);
+            this.lblFaca.Location = new System.Drawing.Point(222, 98);
             this.lblFaca.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFaca.Name = "lblFaca";
             this.lblFaca.Size = new System.Drawing.Size(13, 13);
@@ -99,7 +100,7 @@
             this.lblGarrafa.AutoSize = true;
             this.lblGarrafa.BackColor = System.Drawing.Color.Black;
             this.lblGarrafa.ForeColor = System.Drawing.Color.Transparent;
-            this.lblGarrafa.Location = new System.Drawing.Point(371, 366);
+            this.lblGarrafa.Location = new System.Drawing.Point(348, 98);
             this.lblGarrafa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGarrafa.Name = "lblGarrafa";
             this.lblGarrafa.Size = new System.Drawing.Size(15, 13);
@@ -111,7 +112,7 @@
             this.lblTricornio.AutoSize = true;
             this.lblTricornio.BackColor = System.Drawing.Color.Black;
             this.lblTricornio.ForeColor = System.Drawing.Color.Transparent;
-            this.lblTricornio.Location = new System.Drawing.Point(121, 536);
+            this.lblTricornio.Location = new System.Drawing.Point(97, 299);
             this.lblTricornio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTricornio.Name = "lblTricornio";
             this.lblTricornio.Size = new System.Drawing.Size(14, 13);
@@ -123,7 +124,7 @@
             this.lblChave.AutoSize = true;
             this.lblChave.BackColor = System.Drawing.Color.Black;
             this.lblChave.ForeColor = System.Drawing.Color.Transparent;
-            this.lblChave.Location = new System.Drawing.Point(245, 536);
+            this.lblChave.Location = new System.Drawing.Point(221, 299);
             this.lblChave.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChave.Name = "lblChave";
             this.lblChave.Size = new System.Drawing.Size(14, 13);
@@ -135,7 +136,7 @@
             this.lblPistola.AutoSize = true;
             this.lblPistola.BackColor = System.Drawing.Color.Black;
             this.lblPistola.ForeColor = System.Drawing.Color.Transparent;
-            this.lblPistola.Location = new System.Drawing.Point(372, 536);
+            this.lblPistola.Location = new System.Drawing.Point(348, 299);
             this.lblPistola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPistola.Name = "lblPistola";
             this.lblPistola.Size = new System.Drawing.Size(14, 13);
@@ -205,7 +206,7 @@
             // 
             this.pnlTabuleiro.BackColor = System.Drawing.Color.Transparent;
             this.pnlTabuleiro.BackgroundImage = global::PICartagena.Properties.Resources.BGTabuleiroDef;
-            this.pnlTabuleiro.Location = new System.Drawing.Point(595, 33);
+            this.pnlTabuleiro.Location = new System.Drawing.Point(676, 315);
             this.pnlTabuleiro.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTabuleiro.Name = "pnlTabuleiro";
             this.pnlTabuleiro.Size = new System.Drawing.Size(816, 970);
@@ -214,66 +215,78 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 357);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 84);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(110, 182);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(158, 357);
+            this.pictureBox2.Location = new System.Drawing.Point(135, 84);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(110, 150);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.Size = new System.Drawing.Size(110, 182);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(286, 357);
+            this.pictureBox3.Location = new System.Drawing.Point(262, 84);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(109, 150);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.Size = new System.Drawing.Size(110, 182);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(34, 527);
+            this.pictureBox4.Location = new System.Drawing.Point(11, 286);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(110, 150);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.Size = new System.Drawing.Size(110, 182);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(159, 527);
+            this.pictureBox5.Location = new System.Drawing.Point(135, 286);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(109, 150);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.Size = new System.Drawing.Size(110, 182);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox5.TabIndex = 14;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(285, 527);
+            this.pictureBox6.Location = new System.Drawing.Point(262, 286);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(110, 150);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.Size = new System.Drawing.Size(110, 182);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.lblGarrafa);
+            this.panel1.Controls.Add(this.lblChave);
+            this.panel1.Controls.Add(this.lblTricornio);
+            this.panel1.Controls.Add(this.lblEsqueleto);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lblFaca);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.lblPistola);
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Location = new System.Drawing.Point(23, 241);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(379, 506);
@@ -284,7 +297,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1469, 1025);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1491, 816);
             this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblCarta);
             this.Controls.Add(this.lblPosicaoPirata);
@@ -292,19 +306,7 @@
             this.Controls.Add(this.txtCarta);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.lblTabuleiro);
-            this.Controls.Add(this.lblPistola);
-            this.Controls.Add(this.lblChave);
-            this.Controls.Add(this.lblTricornio);
-            this.Controls.Add(this.lblGarrafa);
-            this.Controls.Add(this.lblFaca);
-            this.Controls.Add(this.lblEsqueleto);
             this.Controls.Add(this.lblJogadorAtual);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -316,6 +318,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
