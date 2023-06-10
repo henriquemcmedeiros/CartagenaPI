@@ -53,13 +53,14 @@
             // 
             // btnListarPartidas
             // 
+            this.btnListarPartidas.BackColor = System.Drawing.Color.Transparent;
             this.btnListarPartidas.Location = new System.Drawing.Point(188, 8);
             this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(2);
             this.btnListarPartidas.Name = "btnListarPartidas";
             this.btnListarPartidas.Size = new System.Drawing.Size(71, 46);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
-            this.btnListarPartidas.UseVisualStyleBackColor = true;
+            this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
             // 
             // lstListarPartidas
