@@ -105,7 +105,6 @@ namespace PICartagena
             lblJogadorAtual.Text = "É a vez do jogador: " + corAtual;
 
             exibirPiratas();
-            exibirTabuleiro();
 
             if (corAtual + "\r\n" == jogador.Cor)
             {
@@ -224,8 +223,6 @@ namespace PICartagena
                 string retornoPiratas = Jogo.VerificarVez(partida.Id);
                 this.piratas = jogador.AtualizarPiratas(piratas, retornoPiratas);
 
-                int b = 0;
-
                 this.picPiratas.Clear();
 
                 for (int i = 0; i < this.panelPosTabuleiro.Count; i++)
@@ -245,7 +242,7 @@ namespace PICartagena
                     // Posição final dos piratas - Barco
                     int xF = 481, yF = 48;
 
-                    int a = 0;
+                    int countPiratasPos = 0;
 
                     for (int j = 0; j < this.piratas.Count; j++)
                     {
@@ -271,39 +268,29 @@ namespace PICartagena
                                     if (piratas[j].PosTabuleiro == 0)
                                     {
                                         p.Location = new System.Drawing.Point(x0, y0);
-                                        x0 += 32;
+                                        x0 += p.Width + 2;
 
-                                        if (a == 11 || a == 23)
+                                        if (countPiratasPos == 11 || countPiratasPos == 23)
                                         {
                                             x0 = 12;
-                                            y0 += 32;
+                                            y0 += p.Width + 2;
                                         }
-                                        a++;
+                                        countPiratasPos++;
                                     }
                                     else if (piratas[j].PosTabuleiro == 37)
                                     {
                                         p.Location = new System.Drawing.Point(xF, yF);
-                                        xF += 32;
+                                        xF += p.Width + 2;
 
-                                        if (a == 5 || a == 11 || a == 17 || a == 23)
+                                        if (countPiratasPos == 5 || countPiratasPos == 11 || countPiratasPos == 17 || countPiratasPos == 23)
                                         {
                                             xF = 481;
-                                            yF += 32;
+                                            yF += p.Width + 2;
                                         }
+                                        countPiratasPos++;
                                     }
                                     else
                                     {
-                                        int piratasAqui = 0;
-                                        int piratasAquiJogador = 0;
-
-                                        /*if (b == 0)
-                                        {
-                                            // ----- QntPiratasNaPosição Retorna o total de piratas sem distinção da cor
-                                            //piratasAqui = QntPiratasNaPosição(piratas, piratas[j].PosTabuleiro);
-                                            piratasAquiJogador = QntPiratasNaPosiçãoJogador(piratas, piratas[j].PosTabuleiro, this.jogadores[k]);
-                                            b++;
-                                        }*/
-
                                         int x = CalcPirataX(j);
                                         int y = CalcPirataY(j);
 
@@ -316,7 +303,7 @@ namespace PICartagena
                                         {
                                             if (pirataDesenhado.x == pirata.x && pirataDesenhado.y == pirata.y)
                                             {
-                                                pirataDesenhado.y += 32;
+                                                pirataDesenhado.y += p.Width + 2;
                                             }
                                         }
 
@@ -332,12 +319,10 @@ namespace PICartagena
                                         blue++;
                                     }
                                 }
-
                                 break;
                             }
                         }
                     }
-
                     listPiratasDesenhados.Clear();
                 }
             }
