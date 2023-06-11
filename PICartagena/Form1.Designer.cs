@@ -54,10 +54,14 @@
             // btnListarPartidas
             // 
             this.btnListarPartidas.BackColor = System.Drawing.Color.Transparent;
-            this.btnListarPartidas.Location = new System.Drawing.Point(188, 8);
-            this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(2);
+            this.btnListarPartidas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnListarPartidas.BackgroundImage")));
+            this.btnListarPartidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListarPartidas.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarPartidas.ForeColor = System.Drawing.Color.White;
+            this.btnListarPartidas.Location = new System.Drawing.Point(309, 31);
+            this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(71, 46);
+            this.btnListarPartidas.Size = new System.Drawing.Size(104, 55);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
             this.btnListarPartidas.UseVisualStyleBackColor = false;
@@ -66,27 +70,32 @@
             // lstListarPartidas
             // 
             this.lstListarPartidas.FormattingEnabled = true;
-            this.lstListarPartidas.Location = new System.Drawing.Point(8, 8);
-            this.lstListarPartidas.Margin = new System.Windows.Forms.Padding(2);
+            this.lstListarPartidas.Location = new System.Drawing.Point(429, 31);
+            this.lstListarPartidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstListarPartidas.Name = "lstListarPartidas";
             this.lstListarPartidas.Size = new System.Drawing.Size(150, 381);
             this.lstListarPartidas.TabIndex = 1;
             // 
             // btnCriarPartida
             // 
-            this.btnCriarPartida.Location = new System.Drawing.Point(188, 253);
-            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCriarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnCriarPartida.BackgroundImage = global::PICartagena.Properties.Resources.button_bkg;
+            this.btnCriarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarPartida.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnCriarPartida.Location = new System.Drawing.Point(71, 257);
+            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCriarPartida.Name = "btnCriarPartida";
-            this.btnCriarPartida.Size = new System.Drawing.Size(71, 46);
+            this.btnCriarPartida.Size = new System.Drawing.Size(98, 55);
             this.btnCriarPartida.TabIndex = 2;
             this.btnCriarPartida.Text = "Criar Partida";
-            this.btnCriarPartida.UseVisualStyleBackColor = true;
+            this.btnCriarPartida.UseVisualStyleBackColor = false;
             this.btnCriarPartida.Click += new System.EventHandler(this.btnCriarPartida_Click);
             // 
             // lblNomeDaPartida
             // 
             this.lblNomeDaPartida.AutoSize = true;
-            this.lblNomeDaPartida.Location = new System.Drawing.Point(161, 310);
+            this.lblNomeDaPartida.Location = new System.Drawing.Point(68, 329);
             this.lblNomeDaPartida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomeDaPartida.Name = "lblNomeDaPartida";
             this.lblNomeDaPartida.Size = new System.Drawing.Size(91, 13);
@@ -96,7 +105,7 @@
             // lblSenhaDaPartida
             // 
             this.lblSenhaDaPartida.AutoSize = true;
-            this.lblSenhaDaPartida.Location = new System.Drawing.Point(161, 352);
+            this.lblSenhaDaPartida.Location = new System.Drawing.Point(68, 371);
             this.lblSenhaDaPartida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSenhaDaPartida.Name = "lblSenhaDaPartida";
             this.lblSenhaDaPartida.Size = new System.Drawing.Size(91, 13);
@@ -105,34 +114,33 @@
             // 
             // txtSenhaPartida
             // 
-            this.txtSenhaPartida.Location = new System.Drawing.Point(179, 368);
-            this.txtSenhaPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSenhaPartida.Location = new System.Drawing.Point(86, 387);
+            this.txtSenhaPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSenhaPartida.Name = "txtSenhaPartida";
             this.txtSenhaPartida.Size = new System.Drawing.Size(87, 20);
             this.txtSenhaPartida.TabIndex = 6;
             // 
             // txtNomePartida
             // 
-            this.txtNomePartida.Location = new System.Drawing.Point(179, 325);
-            this.txtNomePartida.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomePartida.Location = new System.Drawing.Point(86, 344);
+            this.txtNomePartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNomePartida.Name = "txtNomePartida";
             this.txtNomePartida.Size = new System.Drawing.Size(87, 20);
             this.txtNomePartida.TabIndex = 7;
             // 
             // lblPartidaSelecionada
             // 
-            this.lblPartidaSelecionada.AutoSize = true;
-            this.lblPartidaSelecionada.Location = new System.Drawing.Point(161, 125);
+            this.lblPartidaSelecionada.Location = new System.Drawing.Point(588, 52);
             this.lblPartidaSelecionada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPartidaSelecionada.Name = "lblPartidaSelecionada";
-            this.lblPartidaSelecionada.Size = new System.Drawing.Size(105, 13);
+            this.lblPartidaSelecionada.Size = new System.Drawing.Size(113, 13);
             this.lblPartidaSelecionada.TabIndex = 8;
             this.lblPartidaSelecionada.Text = "Partida Selecionada:";
             // 
             // lblPartidaIdeNome
             // 
             this.lblPartidaIdeNome.AutoSize = true;
-            this.lblPartidaIdeNome.Location = new System.Drawing.Point(179, 148);
+            this.lblPartidaIdeNome.Location = new System.Drawing.Point(49, 299);
             this.lblPartidaIdeNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPartidaIdeNome.Name = "lblPartidaIdeNome";
             this.lblPartidaIdeNome.Size = new System.Drawing.Size(0, 13);
@@ -140,29 +148,33 @@
             // 
             // btnSelecionarPartida
             // 
-            this.btnSelecionarPartida.Location = new System.Drawing.Point(188, 68);
-            this.btnSelecionarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSelecionarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnSelecionarPartida.BackgroundImage = global::PICartagena.Properties.Resources.button_bkg;
+            this.btnSelecionarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionarPartida.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionarPartida.Location = new System.Drawing.Point(309, 109);
+            this.btnSelecionarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSelecionarPartida.Name = "btnSelecionarPartida";
-            this.btnSelecionarPartida.Size = new System.Drawing.Size(71, 46);
+            this.btnSelecionarPartida.Size = new System.Drawing.Size(104, 55);
             this.btnSelecionarPartida.TabIndex = 10;
             this.btnSelecionarPartida.Text = "Selecionar Partida";
-            this.btnSelecionarPartida.UseVisualStyleBackColor = true;
+            this.btnSelecionarPartida.UseVisualStyleBackColor = false;
             this.btnSelecionarPartida.Click += new System.EventHandler(this.btnSelecionarPartida_Click);
             // 
             // lblJogadores
             // 
-            this.lblJogadores.AutoSize = true;
-            this.lblJogadores.Location = new System.Drawing.Point(161, 161);
+            this.lblJogadores.Location = new System.Drawing.Point(588, 88);
             this.lblJogadores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblJogadores.Name = "lblJogadores";
-            this.lblJogadores.Size = new System.Drawing.Size(59, 13);
+            this.lblJogadores.Size = new System.Drawing.Size(63, 13);
             this.lblJogadores.TabIndex = 11;
             this.lblJogadores.Text = "Jogadores:";
             // 
             // lblListaJogadores
             // 
             this.lblListaJogadores.AutoSize = true;
-            this.lblListaJogadores.Location = new System.Drawing.Point(179, 188);
+            this.lblListaJogadores.Location = new System.Drawing.Point(49, 339);
             this.lblListaJogadores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblListaJogadores.Name = "lblListaJogadores";
             this.lblListaJogadores.Size = new System.Drawing.Size(0, 13);
@@ -170,16 +182,16 @@
             // 
             // txtNomeDoJogador
             // 
-            this.txtNomeDoJogador.Location = new System.Drawing.Point(300, 325);
-            this.txtNomeDoJogador.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomeDoJogador.Location = new System.Drawing.Point(221, 344);
+            this.txtNomeDoJogador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNomeDoJogador.Name = "txtNomeDoJogador";
             this.txtNomeDoJogador.Size = new System.Drawing.Size(87, 20);
             this.txtNomeDoJogador.TabIndex = 17;
             // 
             // txtSenhaPartidaLogar
             // 
-            this.txtSenhaPartidaLogar.Location = new System.Drawing.Point(300, 368);
-            this.txtSenhaPartidaLogar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSenhaPartidaLogar.Location = new System.Drawing.Point(221, 387);
+            this.txtSenhaPartidaLogar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSenhaPartidaLogar.Name = "txtSenhaPartidaLogar";
             this.txtSenhaPartidaLogar.Size = new System.Drawing.Size(87, 20);
             this.txtSenhaPartidaLogar.TabIndex = 16;
@@ -187,7 +199,7 @@
             // lblSenhaPartidaSelecionada
             // 
             this.lblSenhaPartidaSelecionada.AutoSize = true;
-            this.lblSenhaPartidaSelecionada.Location = new System.Drawing.Point(281, 352);
+            this.lblSenhaPartidaSelecionada.Location = new System.Drawing.Point(202, 371);
             this.lblSenhaPartidaSelecionada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSenhaPartidaSelecionada.Name = "lblSenhaPartidaSelecionada";
             this.lblSenhaPartidaSelecionada.Size = new System.Drawing.Size(91, 13);
@@ -197,7 +209,7 @@
             // lblNomeDoJogador
             // 
             this.lblNomeDoJogador.AutoSize = true;
-            this.lblNomeDoJogador.Location = new System.Drawing.Point(281, 310);
+            this.lblNomeDoJogador.Location = new System.Drawing.Point(202, 329);
             this.lblNomeDoJogador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomeDoJogador.Name = "lblNomeDoJogador";
             this.lblNomeDoJogador.Size = new System.Drawing.Size(91, 13);
@@ -206,24 +218,34 @@
             // 
             // btnEntrarPartida
             // 
-            this.btnEntrarPartida.Location = new System.Drawing.Point(309, 253);
-            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEntrarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnEntrarPartida.BackgroundImage = global::PICartagena.Properties.Resources.button_bkg;
+            this.btnEntrarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrarPartida.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnEntrarPartida.Location = new System.Drawing.Point(205, 257);
+            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
-            this.btnEntrarPartida.Size = new System.Drawing.Size(71, 46);
+            this.btnEntrarPartida.Size = new System.Drawing.Size(98, 55);
             this.btnEntrarPartida.TabIndex = 13;
             this.btnEntrarPartida.Text = "Entrar Partida";
-            this.btnEntrarPartida.UseVisualStyleBackColor = true;
+            this.btnEntrarPartida.UseVisualStyleBackColor = false;
             this.btnEntrarPartida.Click += new System.EventHandler(this.btnEntrarPartida_Click);
             // 
             // btnIniciarPartida
             // 
-            this.btnIniciarPartida.Location = new System.Drawing.Point(309, 68);
-            this.btnIniciarPartida.Margin = new System.Windows.Forms.Padding(2);
+            this.btnIniciarPartida.BackColor = System.Drawing.Color.Transparent;
+            this.btnIniciarPartida.BackgroundImage = global::PICartagena.Properties.Resources.button_bkg;
+            this.btnIniciarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciarPartida.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciarPartida.ForeColor = System.Drawing.Color.White;
+            this.btnIniciarPartida.Location = new System.Drawing.Point(591, 297);
+            this.btnIniciarPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
-            this.btnIniciarPartida.Size = new System.Drawing.Size(71, 46);
+            this.btnIniciarPartida.Size = new System.Drawing.Size(98, 55);
             this.btnIniciarPartida.TabIndex = 18;
             this.btnIniciarPartida.Text = "Iniciar Partida";
-            this.btnIniciarPartida.UseVisualStyleBackColor = true;
+            this.btnIniciarPartida.UseVisualStyleBackColor = false;
             this.btnIniciarPartida.Click += new System.EventHandler(this.btnIniciarPartida_Click);
             // 
             // tmrEntrarPartida
@@ -235,7 +257,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 402);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(712, 446);
             this.Controls.Add(this.btnIniciarPartida);
             this.Controls.Add(this.txtNomeDoJogador);
             this.Controls.Add(this.txtSenhaPartidaLogar);
@@ -254,9 +277,10 @@
             this.Controls.Add(this.btnCriarPartida);
             this.Controls.Add(this.lstListarPartidas);
             this.Controls.Add(this.btnListarPartidas);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "frmIniciar";
             this.Text = "Palmira";

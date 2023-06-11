@@ -93,6 +93,16 @@ namespace PICartagena.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_bkg {
+            get {
+                object obj = ResourceManager.GetObject("button_bkg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChaveE {
             get {
                 object obj = ResourceManager.GetObject("ChaveE", resourceCulture);
