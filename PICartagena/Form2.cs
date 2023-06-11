@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,8 +41,8 @@ namespace PICartagena
             IniciarTabuleiro();
             exibirTabuleiro();
 
-            //MessageBox.Show(Jogo.VerificarVez(partida.Id));
-            lblJogadorAtual.Text = VerificarVezCor(jogadores);
+            lblJogador.Text = "A sua cor é: " + jogador.Cor;
+            lblJogadorAtual.Text = "É a vez do jogador: " + VerificarVezCor(jogadores);
         }
 
         public void AtualizarQntCartas()
@@ -73,28 +74,6 @@ namespace PICartagena
             }
         }
 
-        private void btnJogar_Click(object sender, EventArgs e)
-        {
-            string carta = txtCarta.Text;
-            string posPirata = txtPosicaoPirata.Text;
-
-            if (carta == "" &&  posPirata == "")
-            {
-                // Pular vez
-                piratas = jogador.Jogar(partida, piratas);
-            }
-            else if (posPirata == "")
-            {
-                // Voltar pirata
-                piratas = jogador.Jogar(partida, piratas, carta);
-            }
-            else
-            {
-                // Avançar pirata
-                piratas = jogador.Jogar(partida, piratas, carta, Convert.ToInt32(posPirata));
-            }
-        }
-
         private void tmrPrincipal_Tick(object sender, EventArgs e)
         {
             jogador.ReceberCartas();
@@ -105,10 +84,14 @@ namespace PICartagena
             lblJogadorAtual.Text = "É a vez do jogador: " + corAtual;
 
             exibirPiratas();
+            exibirTabuleiro();
 
             if (corAtual + "\r\n" == jogador.Cor)
             {
-                jogador.Estrategia(partida, piratas);
+                for (int i = 0; i < 3 ; i++)
+                {
+                    jogador.Estrategia(partida, piratas);
+                }
             }
         }
 
@@ -117,7 +100,7 @@ namespace PICartagena
             try
             {
                 // X e Y da posição 1
-                int x = 439, y = 865;
+                int x = 329, y = 674;
                
                 this.tabuleiro = atualizarImgPosicoes(this.tabuleiro);
 
@@ -139,6 +122,7 @@ namespace PICartagena
                     p.Width = this.tabuleiro[i].W;
                     p.Height = this.tabuleiro[i].H;
                     p.BackgroundImage = this.tabuleiro[i].Img;
+                    p.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
 
                     p.BackgroundImageLayout = ImageLayout.Zoom;
 
@@ -148,17 +132,17 @@ namespace PICartagena
                     {
                         if (i < 3 || (i > 9 && i < 15) || (i > 21 && i < 27) || i > 33)
                         {
-                            x += 128;
+                            x += 97;
                         }
 
                         if ((i > 3 && i < 9) || (i > 15 && i < 21) || (i > 27 && i < 33))
                         {
-                            x -= 128;
+                            x -= 97;
                         }
 
                         if (i == 3 || i == 9 || i == 15 || i == 21 || i == 27 || i == 33)
                         {
-                            y -= 128;
+                            y -= 100;
                         }
                     }
                 }
@@ -170,44 +154,44 @@ namespace PICartagena
             }
             catch
             {
-                MessageBox.Show("DEU N");
+                MessageBox.Show("NãO FOI POSSÍVEL EXIBIR O TABULEIRO");
             }
         }
         private List<Elemento> atualizarImgPosicoes(List<Elemento> l)
         {
             foreach (Elemento t in l)
             {
-                t.W = 72;
-                t.H = 72;
+                t.W = 64;
+                t.H = 64;
 
                 if (t.Simbolo == "C")
                 {
-                    t.Img = PICartagena.Properties.Resources.ChaveE;
+                    t.Img = PICartagena.Properties.Resources.ElementoCHA;
                 }
 
                 if (t.Simbolo == "E")
                 {
-                    t.Img = PICartagena.Properties.Resources.EsqueletoE;
+                    t.Img = PICartagena.Properties.Resources.ElementoESQ;
                 }
 
                 if (t.Simbolo == "F")
                 {
-                    t.Img = PICartagena.Properties.Resources.FacaE;
+                    t.Img = PICartagena.Properties.Resources.ElementoFAC;
                 }
 
                 if (t.Simbolo == "T")
                 {
-                    t.Img = PICartagena.Properties.Resources.TricorinioE;
+                    t.Img = PICartagena.Properties.Resources.ElementoTRI ;
                 }
 
                 if (t.Simbolo == "P")
                 {
-                    t.Img = PICartagena.Properties.Resources.PistolaE;
+                    t.Img = PICartagena.Properties.Resources.ElementoPIS;
                 }
 
                 if (t.Simbolo == "G")
                 {
-                    t.Img = PICartagena.Properties.Resources.GarrafaE;
+                    t.Img = PICartagena.Properties.Resources.ElementoGAR;
                 }
             }
 
@@ -236,11 +220,11 @@ namespace PICartagena
 
                 for (int i = 0; i < this.tabuleiro.Count; i++)
                 {
-                    // Posição piratas primeira casa
-                    int x0 = 12, y0 = 845;
+                    // Posição inicial dos piratas - Caverna
+                    int x0 = 100, y0 = 655;
                     
                     // Posição final dos piratas - Barco
-                    int xF = 481, yF = 48;
+                    int xF = 381, yF = 48;
 
                     int countPiratasPos = 0;
 
@@ -257,8 +241,8 @@ namespace PICartagena
                                     int blue = 0;
 
                                     // Tamanho dos piratas
-                                    p.Width = 30;
-                                    p.Height = 30;
+                                    p.Width = 22;
+                                    p.Height = 22;
 
                                     // Configurações da imagem dos piratas
                                     p.BackgroundImageLayout = ImageLayout.Stretch;
@@ -272,20 +256,20 @@ namespace PICartagena
 
                                         if (countPiratasPos == 11 || countPiratasPos == 23)
                                         {
-                                            x0 = 12;
-                                            y0 += p.Width + 2;
+                                            x0 = 100;
+                                            y0 += p.Width + 10;
                                         }
                                         countPiratasPos++;
                                     }
                                     else if (piratas[j].PosTabuleiro == 37)
                                     {
                                         p.Location = new System.Drawing.Point(xF, yF);
-                                        xF += p.Width + 2;
+                                        xF += p.Width + 10;
 
                                         if (countPiratasPos == 5 || countPiratasPos == 11 || countPiratasPos == 17 || countPiratasPos == 23)
                                         {
-                                            xF = 481;
-                                            yF += p.Width + 2;
+                                            xF = 48;
+                                            yF += p.Width + 10;
                                         }
                                         countPiratasPos++;
                                     }
@@ -303,7 +287,7 @@ namespace PICartagena
                                         {
                                             if (pirataDesenhado.x == pirata.x && pirataDesenhado.y == pirata.y)
                                             {
-                                                pirataDesenhado.y += p.Width + 2;
+                                                pirataDesenhado.y += p.Width + 10;
                                             }
                                         }
 
@@ -398,18 +382,18 @@ namespace PICartagena
 
         private int CalcPirataX(int j)
         {
-            int x = 501;
+            int x = 392;
             for (int m = 1; m < piratas[j].PosTabuleiro; m++)
             {
                 if (piratas[j].PosTabuleiro > 1)
                 {
                     if ((m < 3) || (m > 9 && m < 15) || (m > 21 && m < 27) || (m > 33))
                     {
-                        x += 128;
+                        x += 98;
                     }
                     else if ((m > 3 && m < 9) || (m > 15 && m < 21) || (m > 27 && m < 33))
                     {
-                        x -= 128;
+                        x -= 98;
                     }
                 }
             }
@@ -418,28 +402,17 @@ namespace PICartagena
         
         private int CalcPirataY(int j)
         {
-            int y = 842;
+            int y = 655;
             for (int m = 1; m < piratas[j].PosTabuleiro; m++)
             {
                 if (piratas[j].PosTabuleiro > 1)
                 {
                     if ((m == 3) || (m == 9) || (m == 15) || (m == 21) || (m == 27) || (m == 33))
                     {
-                        y -= 128;
+                        y -= 98;
                     }
                 }
             }
-            //if (piratasDesenhados != 1)
-            //{
-            //    if (piratasDesenhados == 2)
-            //    {
-            //        y += 32;
-            //    }
-            //    else if (piratasDesenhados == 3)
-            //    {
-            //        y += 64;
-            //    }
-            //}
 
             return y;
         }

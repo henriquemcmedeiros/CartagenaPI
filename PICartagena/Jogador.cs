@@ -146,7 +146,7 @@ public class Jogador
             if (contadorDeLinhas == piratas.Count)
             {
                 //System.Windows.Forms.MessageBox.Show(Jogo.VerificarVez(partida.Id));
-                System.Windows.Forms.MessageBox.Show("NÃO TEM PIRATA AI VACILAO");
+                System.Windows.Forms.MessageBox.Show("NÃO TEM PIRATA NA POSIÇÃO INDICADA");
             }
         }
         else

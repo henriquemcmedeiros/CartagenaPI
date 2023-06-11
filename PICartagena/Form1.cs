@@ -184,6 +184,8 @@ namespace PICartagena
         {
             VerificarEAdicionarListaJogadores();
 
+            string rfuioghb = Jogo.Versao;
+
             string listaDeJogadores = Jogo.ListarJogadores(partida.Id);
             if (!listaDeJogadores.StartsWith("ERRO"))
             {
@@ -191,11 +193,6 @@ namespace PICartagena
             }
 
             entrarNaPartida(partida, jogador);
-        }
-
-        private void frmIniciar_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
