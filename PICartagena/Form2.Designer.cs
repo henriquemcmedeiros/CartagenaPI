@@ -84,7 +84,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(443, 205);
+            this.pictureBox3.Location = new System.Drawing.Point(437, 205);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(125, 201);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -94,7 +94,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(443, 412);
+            this.pictureBox6.Location = new System.Drawing.Point(437, 412);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(125, 201);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -126,7 +126,7 @@
             this.lblPistola.AutoSize = true;
             this.lblPistola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPistola.ForeColor = System.Drawing.Color.Transparent;
-            this.lblPistola.Location = new System.Drawing.Point(539, 429);
+            this.lblPistola.Location = new System.Drawing.Point(533, 429);
             this.lblPistola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPistola.Name = "lblPistola";
             this.lblPistola.Size = new System.Drawing.Size(14, 13);
@@ -206,7 +206,7 @@
             this.lblGarrafa.AutoSize = true;
             this.lblGarrafa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblGarrafa.ForeColor = System.Drawing.Color.Transparent;
-            this.lblGarrafa.Location = new System.Drawing.Point(539, 222);
+            this.lblGarrafa.Location = new System.Drawing.Point(533, 222);
             this.lblGarrafa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGarrafa.Name = "lblGarrafa";
             this.lblGarrafa.Size = new System.Drawing.Size(15, 13);
@@ -216,7 +216,7 @@
             // pnlTabuleiro
             // 
             this.pnlTabuleiro.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTabuleiro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTabuleiro.BackgroundImage")));
+            this.pnlTabuleiro.BackgroundImage = global::PICartagena.Properties.Resources.Form2_Panel_BKG;
             this.pnlTabuleiro.Location = new System.Drawing.Point(709, 43);
             this.pnlTabuleiro.Name = "pnlTabuleiro";
             this.pnlTabuleiro.Size = new System.Drawing.Size(634, 766);
@@ -227,7 +227,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Sienna;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::PICartagena.Properties.Resources.FOORRMMMMM_222_BKGGG;
             this.ClientSize = new System.Drawing.Size(1491, 814);
             this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblChave);

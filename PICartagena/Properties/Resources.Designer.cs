@@ -193,6 +193,36 @@ namespace PICartagena.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FOORRMMMMM_222_BKGGG {
+            get {
+                object obj = ResourceManager.GetObject("FOORRMMMMM 222 BKGGG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form2_BKG {
+            get {
+                object obj = ResourceManager.GetObject("Form2_BKG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form2_Panel_BKG {
+            get {
+                object obj = ResourceManager.GetObject("Form2_Panel_BKG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GarrafaE {
             get {
                 object obj = ResourceManager.GetObject("GarrafaE", resourceCulture);

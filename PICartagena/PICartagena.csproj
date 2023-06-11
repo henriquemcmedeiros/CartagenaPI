@@ -105,6 +105,9 @@
   <ItemGroup>
     <Content Include="henricola.ico" />
     <Content Include="HenricolaBarraDeTarefas.ico" />
+    <None Include="Resources\Form2_Panel_BKG.png" />
+    <None Include="Resources\FOORRMMMMM 222 BKGGG.png" />
+    <None Include="Resources\Form2_BKG.png" />
     <None Include="Resources\ElementoTRI.png" />
     <None Include="Resources\ElementoPIS.png" />
     <None Include="Resources\ElementoGAR.png" />
