@@ -42,7 +42,7 @@ namespace PICartagena
             exibirTabuleiro();
 
             lblJogador.Text = "A sua cor é: " + jogador.Cor;
-            lblJogadorAtual.Text = "É a vez do jogador: " + VerificarVezCor(jogadores);
+            lblJogadorAtual.Text = "";
         }
 
         public void AtualizarQntCartas()
@@ -76,15 +76,17 @@ namespace PICartagena
 
         private void tmrPrincipal_Tick(object sender, EventArgs e)
         {
+            string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
+            string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
+
             jogador.ReceberCartas();
             AtualizarQntCartas();
 
-            string corAtual = VerificarVezCor(jogadores);
+            string corAtual = VerificarVezCor(jogadores, PrimeiraLinhaVerificaVez);
 
             lblJogadorAtual.Text = "É a vez do jogador: " + corAtual;
 
             exibirPiratas();
-            exibirTabuleiro();
 
             if (corAtual + "\r\n" == jogador.Cor)
             {
@@ -93,6 +95,8 @@ namespace PICartagena
                     jogador.Estrategia(partida, piratas);
                 }
             }
+
+            FinalizarJogo(piratas, jogadores, PrimeiraLinhaVerificaVez);
         }
 
         private void exibirTabuleiro()
@@ -216,7 +220,24 @@ namespace PICartagena
 
                 listPiratasDesenhados.Clear();
 
-                this.pnlTabuleiro.Controls.Clear();
+                List<PictureBox> pictureBoxesToRemove = new List<PictureBox>();
+
+                // Percorre os controles do painel
+                foreach (Control control in pnlTabuleiro.Controls)
+                {
+                    // Verifica se o controle é uma PictureBox
+                    if (control is PictureBox pictureBox)
+                    {
+                        pictureBoxesToRemove.Add(pictureBox);
+                    }
+                }
+
+                // Remove os PictureBoxes do painel
+                foreach (PictureBox pictureBox in pictureBoxesToRemove)
+                {
+                    pnlTabuleiro.Controls.Remove(pictureBox);
+                    pictureBox.Dispose();
+                }
 
                 for (int i = 0; i < this.tabuleiro.Count; i++)
                 {
@@ -254,10 +275,10 @@ namespace PICartagena
                                         p.Location = new System.Drawing.Point(x0, y0);
                                         x0 += p.Width + 2;
 
-                                        if (countPiratasPos == 11 || countPiratasPos == 23)
+                                        if (countPiratasPos == 5 || countPiratasPos == 11 || countPiratasPos == 17 || countPiratasPos == 23)
                                         {
                                             x0 = 100;
-                                            y0 += p.Width + 10;
+                                            y0 += p.Width + 2;
                                         }
                                         countPiratasPos++;
                                     }
@@ -269,7 +290,7 @@ namespace PICartagena
                                         if (countPiratasPos == 5 || countPiratasPos == 11 || countPiratasPos == 17 || countPiratasPos == 23)
                                         {
                                             xF = 48;
-                                            yF += p.Width + 10;
+                                            yF += p.Width + 2;
                                         }
                                         countPiratasPos++;
                                     }
@@ -362,11 +383,8 @@ namespace PICartagena
             return qntPiratas;
         }
 
-        private string VerificarVezCor(List<Jogador> jogadores)
+        private string VerificarVezCor(List<Jogador> jogadores, string[] PrimeiraLinhaVerificaVez)
         {
-            string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
-            string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
-
             string corDoJogadorAtual = "ERRO! Cor não encontrada";
 
             foreach (Jogador jo in jogadores)
@@ -415,6 +433,28 @@ namespace PICartagena
             }
 
             return y;
+        }
+
+        private bool FinalizarJogo(List<Pirata> piratas, List<Jogador> jogadores, string[] PrimeiraLinhaVerificaVez)
+        {
+            if (PrimeiraLinhaVerificaVez[0] == "E")
+            {
+                foreach (Pirata pirata in piratas)
+                {
+                    if (pirata.qntPiratas == 6 && pirata.PosTabuleiro == 37)
+                    {
+                        foreach (Jogador jogador in jogadores)
+                        {
+                            if (pirata.idJogador == jogador.Id)
+                            {
+                                MessageBox.Show($"O jogador {jogador.Cor} ganhou!!");
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
+            return false;
         }
     }
 
