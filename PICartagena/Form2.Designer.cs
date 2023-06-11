@@ -50,6 +50,7 @@
             this.lblTricornio = new System.Windows.Forms.Label();
             this.lblChave = new System.Windows.Forms.Label();
             this.lblGarrafa = new System.Windows.Forms.Label();
+            this.pnlTabuleiro = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -259,13 +260,22 @@
             this.lblGarrafa.TabIndex = 3;
             this.lblGarrafa.Text = "G";
             // 
+            // pnlTabuleiro
+            // 
+            this.pnlTabuleiro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlTabuleiro.BackgroundImage")));
+            this.pnlTabuleiro.Location = new System.Drawing.Point(709, 43);
+            this.pnlTabuleiro.Name = "pnlTabuleiro";
+            this.pnlTabuleiro.Size = new System.Drawing.Size(634, 766);
+            this.pnlTabuleiro.TabIndex = 19;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1491, 816);
+            this.ClientSize = new System.Drawing.Size(1491, 814);
+            this.Controls.Add(this.pnlTabuleiro);
             this.Controls.Add(this.lblChave);
             this.Controls.Add(this.lblTricornio);
             this.Controls.Add(this.lblCarta);
@@ -321,5 +331,6 @@
         private System.Windows.Forms.Label lblTricornio;
         private System.Windows.Forms.Label lblChave;
         private System.Windows.Forms.Label lblGarrafa;
+        private System.Windows.Forms.Panel pnlTabuleiro;
     }
 }
