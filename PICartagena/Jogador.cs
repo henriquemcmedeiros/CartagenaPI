@@ -292,7 +292,9 @@ public class Jogador
             {
                 qntPiratas += p.qntPiratas;
             }
+            j++;
         }
         return qntPiratas;
     }
 }
+
