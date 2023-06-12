@@ -11,24 +11,25 @@ using System.Windows.Forms;
 
 namespace PICartagena
 {
-    public partial class txtNomeDaPartida : Form
+    public partial class frmIniciar : Form
     {
         Partida partida = new Partida();
         Jogador jogador = new Jogador();
-        public txtNomeDaPartida()
+        List<Jogador> jogadores = new List<Jogador>();
+        public frmIniciar()
         {
             InitializeComponent();
-            //btnListarPartidas_Click(sender, e); listar partidas automaticamente
+
+            tmrEntrarPartida.Start();
+            //btnListarPartidas_Click(); //listar partidas automaticamente
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
             lstListarPartidas.Items.Clear();
-            string ListarPartidas = Jogo.ListarPartidas("A");
 
-            ListarPartidas = ListarPartidas.Replace("\r", "");
+            string[] partidas = Jogo.ListarPartidas("A").Replace("\r", "").Split(new char[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-            string[] partidas = ListarPartidas.Split('\n');
             for (int i = 0; i < partidas.Length; i++)
             {
                 lstListarPartidas.Items.Add(partidas[i]);
@@ -119,10 +120,79 @@ namespace PICartagena
             }
             else
             {
-                partida.status = "J";
-                Form f2 = new Form2(partida, jogador);
-                f2.ShowDialog();
+                entrarNaPartida(partida, jogador);
             }
+        }
+
+        private void entrarNaPartida(Partida partida, Jogador jogador)
+        {
+            string[] VerificaVezETabuleiro = Jogo.VerificarVez(partida.Id).Replace("\r", "").Split('\n');
+            string[] PrimeiraLinhaVerificaVez = VerificaVezETabuleiro[0].Split(',');
+            bool aberto = false;
+
+            if (PrimeiraLinhaVerificaVez[0] == "J" && !aberto)
+            {
+                foreach (Jogador jo in jogadores)
+                {
+                    if (jo.Id == jogador.Id)
+                    {
+                        partida.status = "J";
+                        tmrEntrarPartida.Stop();
+                        Form f2 = new Form2(partida, jogador, jogadores);
+                        this.Hide();
+                        f2.ShowDialog();
+                    }
+                }
+            }
+        }
+
+        private void VerificarEAdicionarListaJogadores()
+        {
+            // Verifica se alguma partida foi selecionada
+            if (lstListarPartidas.SelectedItem != null && partida.Id != 0)
+            {
+                string[] retornoJogadores = Jogo.ListarJogadores(partida.Id).Replace("\r", "").Split('\n');
+
+                if (retornoJogadores[0].StartsWith("ERRO") || !(retornoJogadores[retornoJogadores.Length - 1] == ""))
+                {
+                    MessageBox.Show(retornoJogadores[0]);
+                }
+                else
+                {
+                    jogadores.Clear();
+
+                    foreach (string jo in retornoJogadores)
+                    {
+                        if (jo != "")
+                        {
+                            string[] item = jo.Split(',');
+
+                            Jogador auxiliar = new Jogador();
+
+                            auxiliar.Id = Convert.ToInt32(item[0]);
+                            auxiliar.Nome = item[1];
+                            auxiliar.Cor = item[2];
+
+                            jogadores.Add(auxiliar);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void tmrEntrarPartida_Tick(object sender, EventArgs e)
+        {
+            VerificarEAdicionarListaJogadores();
+
+            string rfuioghb = Jogo.Versao;
+
+            string listaDeJogadores = Jogo.ListarJogadores(partida.Id);
+            if (!listaDeJogadores.StartsWith("ERRO"))
+            {
+                lblListaJogadores.Text = listaDeJogadores;
+            }
+
+            entrarNaPartida(partida, jogador);
         }
     }
 }

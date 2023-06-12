@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HenricolaBarraDeTarefas.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CartagenaServer">
       <HintPath>..\CartagenaServer.dll</HintPath>
@@ -49,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cartas.cs" />
+    <Compile Include="Carta.cs" />
+    <Compile Include="Elemento.cs" />
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,11 +68,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Piratas.cs" />
+    <Compile Include="Pirata.cs" />
+    <Compile Include="Pirate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -81,6 +87,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -94,6 +101,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="henricola.ico" />
+    <Content Include="HenricolaBarraDeTarefas.ico" />
+    <None Include="Resources\Form2_Panel_BKG.png" />
+    <None Include="Resources\FOORRMMMMM 222 BKGGG.png" />
+    <None Include="Resources\Form2_BKG.png" />
+    <None Include="Resources\ElementoTRI.png" />
+    <None Include="Resources\ElementoPIS.png" />
+    <None Include="Resources\ElementoGAR.png" />
+    <None Include="Resources\ElementoFAC.png" />
+    <None Include="Resources\ElementoESQ.png" />
+    <None Include="Resources\ElementoCHA.png" />
+    <None Include="Resources\button_bkg.jpg" />
+    <None Include="Resources\BGTabuleiroDef.png" />
+    <None Include="Resources\vermelho.png" />
+    <None Include="Resources\verde.png" />
+    <None Include="Resources\azul.png" />
+    <None Include="Resources\amarelo.png" />
+    <None Include="Resources\TricorinioE.png" />
+    <None Include="Resources\PistolaE.png" />
+    <None Include="Resources\GarrafaE.png" />
+    <None Include="Resources\FacaE.png" />
+    <None Include="Resources\EsqueletoE.png" />
+    <None Include="Resources\ChaveE.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
